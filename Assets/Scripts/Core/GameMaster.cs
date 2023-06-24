@@ -21,6 +21,7 @@ namespace Core
         [Header("Debug systems")]
         [Space(10)]
         [SerializeField] private DebugActions debug;
+        
 
         public static GameMaster Instance { get; private set; }
 

@@ -2,6 +2,7 @@
 
 using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 #endregion
 
@@ -34,7 +35,13 @@ namespace Core
 
         public bool GetShootInput()
         {
-            return _playerInput.Player.Shoot.triggered;
+            
+            return _playerInput.Player.Shoot.IsPressed();
+        }
+
+        public bool GetReloadInput()
+        {
+            return _playerInput.Player.Reload.triggered;
         }
     }
 }
