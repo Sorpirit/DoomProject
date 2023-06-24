@@ -36,5 +36,10 @@ namespace Core
         {
             return _playerInput.Player.Shoot.triggered;
         }
+        
+        public bool GetJumpInput()
+        {
+            return _playerInput.Player.Jump.IsPressed();
+        }
     }
 }

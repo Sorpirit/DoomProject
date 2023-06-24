@@ -42,6 +42,7 @@ namespace Core
 
         private void Start()
         {
+            Cursor.lockState = CursorLockMode.Locked;
             sanityUI.Init(sanityController);
         }
     }

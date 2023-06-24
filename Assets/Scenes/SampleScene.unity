@@ -471,7 +471,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &357099115
 Transform:
   m_ObjectHideFlags: 0
@@ -857,7 +857,7 @@ GameObject:
   - component: {fileID: 575395372}
   - component: {fileID: 575395371}
   - component: {fileID: 575395375}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Flor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2649,6 +2649,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 3785583369319928180, guid: cdcc9b9327e577e4ebaba270e005629a,
+        type: 3}
+      propertyPath: airControlMultiplayer
+      value: 0.1
       objectReference: {fileID: 0}
     - target: {fileID: 4984471754802883454, guid: cdcc9b9327e577e4ebaba270e005629a,
         type: 3}
