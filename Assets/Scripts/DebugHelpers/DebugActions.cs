@@ -1,26 +1,19 @@
+#region
+
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+
+#endregion
 
 namespace DebugHelpers
 {
     public class DebugActions : MonoBehaviour
     {
-        private List<QuickActions> _quickActions = new List<QuickActions>();
-        
         [SerializeField] private int actionButtonWidth = 50;
         [SerializeField] private int actionButtonHeight = 50;
         [SerializeField] private int actionButtonMargin = 20;
-        
-        
-        public void AddQuickAction(string title, Action action)
-        {
-            _quickActions.Add(new QuickActions
-            {
-                Title = title,
-                Action = action
-            });
-        }
+        private List<QuickActions> _quickActions = new List<QuickActions>();
 
         private void OnGUI()
         {
@@ -33,6 +26,16 @@ namespace DebugHelpers
                     quickAction.Action();
                 y -= actionButtonHeight - actionButtonMargin;
             }
+        }
+
+
+        public void AddQuickAction(string title, Action action)
+        {
+            _quickActions.Add(new QuickActions
+            {
+                Title = title,
+                Action = action
+            });
         }
 
         private struct QuickActions

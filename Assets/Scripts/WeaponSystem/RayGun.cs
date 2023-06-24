@@ -1,12 +1,12 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+#region
+
 using Core;
-using DG.Tweening;
 using UnityEngine;
 using UnityEngine.Serialization;
 using WeaponSystem;
 using Random = UnityEngine.Random;
+
+#endregion
 
 public class RayGun : MonoBehaviour
 {
@@ -24,8 +24,9 @@ public class RayGun : MonoBehaviour
     {
         rayVisualizer.enabled = false;
     }
-    
+
     public void Shoot()
+    
     {
         Vector3 spread = Random.insideUnitSphere * Random.Range(0, weapon.Spread);
         Vector3 direction = (shootingPoint.forward + spread).normalized;

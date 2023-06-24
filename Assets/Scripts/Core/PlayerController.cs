@@ -10,7 +10,7 @@ namespace Core
         [SerializeField] private float maxSpeed = 10.0f;
         [SerializeField] private float acceleration = 10.0f;
         [SerializeField] private float rotationSpeed = 100.0f;
-        
+
         [SerializeField, Range(0.1f, 3.0f)] private float sensitivityX = 1.0f;
         [SerializeField, Range(0.1f, 3.0f)] private float sensitivityY = 1.0f;
 
@@ -27,10 +27,11 @@ namespace Core
         private float _rotationYaw;
         private float _rotationPitch;
         private Rigidbody _rg;
+
         private int _clampAngle = 80;
 
         private float sqrMaxSpeed;
-        
+
         private void Start()
         {
             _weaponSystem = new WeaponSystemController();

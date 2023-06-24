@@ -1,5 +1,9 @@
+#region
+
 using System;
 using UnityEngine;
+
+#endregion
 
 namespace Core
 {
@@ -7,20 +11,18 @@ namespace Core
     {
         [SerializeField, Tooltip("Should be in order from biggest to smallest")] private float[] maxSanityPoints;
         [SerializeField] private float degradationRate = 0.1f;
+        private float _currentMaxSanityPoints;
 
         private int _currentSanityLevel;
-        private float _currentMaxSanityPoints;
         private float _nextLevelMaxSanityPoints;
         private float _sanityPoints;
-    
+
         public int CurrentSanityLevel => _currentSanityLevel;
 
         public float[] MaxSanityPoints => maxSanityPoints;
 
         public float SanityPoints => _sanityPoints;
 
-        public event Action OnMaxLevelChanged;
-    
         private void Start()
         {
             _currentSanityLevel = 0;
@@ -35,6 +37,8 @@ namespace Core
         {
             DecreaseSanity(degradationRate * Time.deltaTime);
         }
+
+        public event Action OnMaxLevelChanged;
 
         public void TakeDamage(DamageInfo damageInfo)
         {
