@@ -45,7 +45,7 @@ namespace Core
         {
             for (var i = 0; i < spawnVariants.Length; i++)
             {
-                spawnVariants[i].collider = spawnVariants[i].enemyPrefab.GetComponentInChildren<CapsuleCollider>();
+                spawnVariants[i].collider = spawnVariants[i].enemyPrefab.BodyCollider as CapsuleCollider;
             }
         }
 

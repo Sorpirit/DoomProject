@@ -11,8 +11,10 @@ namespace Core
     {
         [SerializeField] private HealthSystem healthSystem;
         [SerializeField] private HuntAI huntAI;
+        [SerializeField] private Collider bodyCollider;
 
         private State _currentState;
+        public Collider BodyCollider => bodyCollider;
 
         public bool IsHit { get; private set; }
         public bool IsDead => _currentState == State.Dead;
@@ -26,7 +28,7 @@ namespace Core
             healthSystem.OnHit += HealthSystemOnHit;
         }
 
-        private void Update()
+        private void LateUpdate()
         {
             ResetOneTimeStuff();
         }
@@ -43,6 +45,7 @@ namespace Core
             // Destroy(huntAI);
             healthSystem.enabled = false;
             huntAI.enabled = false;
+            bodyCollider.enabled = false;
             _currentState = State.Dead;
         }
 
@@ -53,7 +56,7 @@ namespace Core
 
         private enum State
         {
-            Idle, 
+            Idle,
             Chasing,
             Attacking,
             Dead
