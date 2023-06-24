@@ -1,10 +1,4 @@
-#region
-
-using System;
 using UnityEngine;
-using UnityEngine.Serialization;
-
-#endregion
 
 namespace Core
 {
@@ -105,7 +99,10 @@ namespace Core
                 _readyToJump = true;
             
             if(_readyToJump && _jumpInput)
+            {
+                _rg.velocity = new Vector3(_rg.velocity.x, 0, _rg.velocity.z);
                 _rg.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
+            }
         }
 
         private bool GroundCheck()
