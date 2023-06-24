@@ -19,6 +19,7 @@ namespace Core
         [Header("Debug systems")]
         [Space(10)]
         [SerializeField] private DebugActions debug;
+        
 
         
         

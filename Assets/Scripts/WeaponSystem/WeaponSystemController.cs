@@ -1,9 +1,11 @@
-﻿using UI;
+﻿using Core;
+using UI;
 using UnityEngine;
 
 namespace WeaponSystem
 {
-    public class WeaponSystem
+    
+    public class WeaponSystemController
     {
         private Weapon _weapon;
         private RayGun _rayGun;
@@ -28,7 +30,7 @@ namespace WeaponSystem
 
         public void StartShooting()
         {
-            if (_weapon.CurrentAmountOfBullets!=0 && _canShootFireRate && _currentState == WeaponState.ReadyToShoot)
+            if (_weapon.CurrentAmountOfBullets!=0 && _canShootFireRate && _currentState == WeaponState.ReadyToShoot && _enoughBullets)
             {
                 _latsTimeShot = Time.deltaTime;
                 _weapon.Shoot();
@@ -39,15 +41,23 @@ namespace WeaponSystem
 
         public void StartReloading()
         {
-            _startReloadTime = Time.deltaTime;
+            _startReloadTime = Time.time;
             _currentState = WeaponState.Reloading;
-            _weapon.Reload();
         }
         
 
-        public void Update()
+        public void UpdateWeaponSystem()
         {
-            if (Time.deltaTime - _latsTimeShot >= _weapon.FireRate)
+            if (InputManager.Instance.GetShootInput())
+            {
+                StartShooting();
+            }
+
+            if (InputManager.Instance.GetReloadInput())
+            {
+                StartReloading();
+            }
+            if (Time.time - _latsTimeShot >= _weapon.FireRate)
             {
                 _canShootFireRate = true;
             }
@@ -59,9 +69,11 @@ namespace WeaponSystem
 
             if (_currentState == WeaponState.Reloading)
             {
-                if (Time.deltaTime - _startReloadTime >= _weapon.ReloadTime)
+                if (Time.time - _startReloadTime >= _weapon.ReloadTime)
                 {
                     _currentState = WeaponState.ReadyToShoot;
+                    _enoughBullets = true;
+                    _weapon.Reload();
                 }
             }
             _bulletsUIComponent.UpdateUIComponents();

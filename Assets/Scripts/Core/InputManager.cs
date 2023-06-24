@@ -1,5 +1,6 @@
 using JetBrains.Annotations;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace Core
 {
@@ -30,7 +31,13 @@ namespace Core
         
         public bool GetShootInput()
         {
+            
             return _playerInput.Player.Shoot.triggered;
+        }
+
+        public bool GetReloadInput()
+        {
+            return _playerInput.Player.Reload.triggered;
         }
     }
 }

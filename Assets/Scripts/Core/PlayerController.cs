@@ -1,9 +1,11 @@
 using System;
+using UI;
 using UnityEngine;
+using WeaponSystem;
 
 namespace Core
 {
-    public class CharacterController : MonoBehaviour
+    public class PlayerController : MonoBehaviour
     {
         [SerializeField] private float maxSpeed = 10.0f;
         [SerializeField] private float acceleration = 10.0f;
@@ -14,7 +16,13 @@ namespace Core
 
         [SerializeField] private Transform playerTransform;
         [SerializeField] private Transform cameraOrientation;
+
+        [SerializeField] private Weapon weapon;
+        [SerializeField] private RayGun rayGun;
+        [SerializeField] private BulletsUIComponent bulletsUIComponent;
         
+
+        private WeaponSystemController _weaponSystem;
         
         private float _rotationYaw;
         private float _rotationPitch;
@@ -25,10 +33,13 @@ namespace Core
         
         private void Start()
         {
+            _weaponSystem = new WeaponSystemController();
+            _weaponSystem.Init(weapon, rayGun, bulletsUIComponent);
             Cursor.lockState = CursorLockMode.Locked;
             _rg = GetComponent<Rigidbody>();
             _rg.freezeRotation = true;
             sqrMaxSpeed = maxSpeed * maxSpeed;
+            
         }
 
         private void FixedUpdate()
@@ -47,6 +58,11 @@ namespace Core
             var velocity = _rg.velocity;
             if(velocity.sqrMagnitude >= sqrMaxSpeed)
                 _rg.velocity = velocity.normalized * maxSpeed;
+        }
+
+        private void Update()
+        {
+            _weaponSystem.UpdateWeaponSystem();
         }
 
         private void OnGUI()
