@@ -12,6 +12,7 @@ namespace DebugHelpers
         [SerializeField] private int actionButtonHeight = 50;
         [SerializeField] private int actionButtonMargin = 20;
         
+        
         public void AddQuickAction(string title, Action action)
         {
             _quickActions.Add(new QuickActions
@@ -23,6 +24,8 @@ namespace DebugHelpers
 
         private void OnGUI()
         {
+            //Doesnt seem to work ((
+            //Todo try to find solution for debug actions
             var y = Screen.height - actionButtonMargin - actionButtonHeight;
             foreach (var quickAction in _quickActions)
             {

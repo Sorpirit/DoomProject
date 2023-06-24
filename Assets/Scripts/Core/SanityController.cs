@@ -28,15 +28,25 @@ namespace Core
             _nextLevelMaxSanityPoints = maxSanityPoints.Length >= 2 ? maxSanityPoints[_currentSanityLevel + 1] : 0;
             _sanityPoints = _currentMaxSanityPoints;
         
-            GameMaster.Instance.Debug.AddQuickAction("1k sanity", () => _sanityPoints = 1000);
+            //GameMaster.Instance.Debug.AddQuickAction("1k sanity", () => _sanityPoints = 1000);
         }
 
         private void Update()
         {
-            _sanityPoints -= degradationRate * Time.deltaTime;
+            DecreaseSanity(degradationRate * Time.deltaTime);
+        }
+
+        public void TakeDamage(DamageInfo damageInfo)
+        {
+            DecreaseSanity(damageInfo.Damage);
+        }
+
+        private void DecreaseSanity(float value)
+        {
+            _sanityPoints -= value;
             if (_sanityPoints <= 0)
             {
-                UnityEngine.Debug.Log("Game Over");
+                Debug.Log("Game Over");
                 return;
             }
 
@@ -47,11 +57,6 @@ namespace Core
                 _nextLevelMaxSanityPoints = maxSanityPoints.Length >= 2 ? maxSanityPoints[_currentSanityLevel + 1] : 0;
                 OnMaxLevelChanged?.Invoke();
             }
-        }
-
-        public void TakeDamage(DamageInfo damageInfo)
-        {
-        
         }
     }
 }

@@ -27,5 +27,10 @@ namespace Core
         {
             return _playerInput.Player.Look.ReadValue<Vector2>();
         }
+        
+        public bool GetShootInput()
+        {
+            return _playerInput.Player.Shoot.triggered;
+        }
     }
 }

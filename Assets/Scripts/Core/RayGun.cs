@@ -31,7 +31,7 @@ public class RayGun : MonoBehaviour
         if(_shootingTimer >= 0)
             _shootingTimer -= Time.deltaTime;
         
-        if (Input.GetMouseButton(0) && _shootingTimer <= 0)
+        if (InputManager.Instance.GetShootInput() && _shootingTimer <= 0)
         {
             Shoot();
         }
