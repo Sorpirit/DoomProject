@@ -153,3 +153,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthSystem: {fileID: 8354802245412310276}
   huntAI: {fileID: 2399070263124365838}
+  collider: {fileID: 3402981842748783554}
