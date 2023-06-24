@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 905ebc06b3b6dbc4f9cef4af52e4d418
+timeCreated: 1580698566
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 137126
+  packageName: POLYGON Prototype - Low Poly 3D Art by Synty
+  packageVersion: 1.5
+  assetPath: Assets/PolygonPrototype/Models/Materials/lambert4SG4.mat
+  uploadId: 585895

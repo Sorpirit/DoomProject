@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 63c46b4edfe043e438db851546036952
+timeCreated: 1580698583
+licenseType: Store
+NativeFormatImporter:
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 137126
+  packageName: POLYGON Prototype - Low Poly 3D Art by Synty
+  packageVersion: 1.5
+  assetPath: Assets/PolygonPrototype/Models/Materials/Arms.mat
+  uploadId: 585895
