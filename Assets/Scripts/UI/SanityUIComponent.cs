@@ -1,7 +1,10 @@
-using System;
+#region
+
 using Core;
 using UnityEngine;
 using UnityEngine.UI;
+
+#endregion
 
 namespace UI
 {
@@ -9,8 +12,13 @@ namespace UI
     {
         [SerializeField] private Slider SanitySlider;
         [SerializeField] private Slider MaxSanitySlider;
-        
+
         private SanityController _sanityController;
+
+        private void LateUpdate()
+        {
+            SanitySlider.value = _sanityController.SanityPoints;
+        }
 
         public void Init(SanityController sanityController)
         {
@@ -25,11 +33,6 @@ namespace UI
             MaxSanitySlider.value = 0;
             
             _sanityController.OnMaxLevelChanged += UpdateMaxSanitySlider;
-        }
-        
-        private void LateUpdate()
-        {
-            SanitySlider.value = _sanityController.SanityPoints;
         }
 
         private void UpdateMaxSanitySlider()

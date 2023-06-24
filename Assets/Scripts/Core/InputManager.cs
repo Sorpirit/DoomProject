@@ -1,12 +1,14 @@
+#region
+
 using JetBrains.Annotations;
 using UnityEngine;
+
+#endregion
 
 namespace Core
 {
     public class InputManager
     {
-        public static InputManager Instance => _instance ??= new InputManager();
-
         [CanBeNull] 
         private static InputManager _instance;
 
@@ -18,16 +20,18 @@ namespace Core
             _playerInput.Enable();
         }
 
+        public static InputManager Instance => _instance ??= new InputManager();
+
         public Vector2 GetMovementInput()
         {
             return _playerInput.Player.Movement.ReadValue<Vector2>();
         }
-        
+
         public Vector2 GetMouseDelta()
         {
             return _playerInput.Player.Look.ReadValue<Vector2>();
         }
-        
+
         public bool GetShootInput()
         {
             return _playerInput.Player.Shoot.triggered;

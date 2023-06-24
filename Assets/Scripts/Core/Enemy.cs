@@ -1,5 +1,9 @@
-﻿using System;
+﻿#region
+
+using System;
 using UnityEngine;
+
+#endregion
 
 namespace Core
 {
@@ -8,10 +12,23 @@ namespace Core
         [SerializeField] private HealthSystem healthSystem;
         [SerializeField] private HuntAI huntAI;
 
+        private State _currentState;
+
+        public bool IsHit { get; private set; }
+        public bool IsDead => _currentState == State.Dead;
+        public bool IsAttacking => _currentState == State.Attacking;
+        public bool IsChasing => _currentState == State.Chasing;
+        public bool IsIdle => _currentState == State.Idle;
+
         private void Start()
         {
             healthSystem.OnDead += HealthSystemOnDead;
             healthSystem.OnHit += HealthSystemOnHit;
+        }
+
+        private void Update()
+        {
+            ResetOneTimeStuff();
         }
 
         private void HealthSystemOnHit(object sender, EventArgs e)
@@ -29,24 +46,11 @@ namespace Core
             _currentState = State.Dead;
         }
 
-        public bool IsHit { get; private set; }
-        public bool IsDead => _currentState == State.Dead;
-        public bool IsAttacking => _currentState == State.Attacking;
-        public bool IsChasing => _currentState == State.Chasing;
-        public bool IsIdle => _currentState == State.Idle;
-
         private void ResetOneTimeStuff()
         {
             IsHit = false;
         }
 
-        private void Update()
-        {
-            ResetOneTimeStuff();
-        }
-
-        private State _currentState;
-        
         private enum State
         {
             Idle, 

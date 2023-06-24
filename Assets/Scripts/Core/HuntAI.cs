@@ -1,7 +1,10 @@
-using System;
+#region
+
 using Data.Input;
 using UnityEngine;
 using UnityEngine.AI;
+
+#endregion
 
 namespace Core
 {

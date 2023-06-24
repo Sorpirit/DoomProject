@@ -1,11 +1,9 @@
-using System;
-using System.Collections;
-using System.Collections.Generic;
+#region
+
 using Core;
-using DG.Tweening;
 using UnityEngine;
-using UnityEngine.Serialization;
-using Random = UnityEngine.Random;
+
+#endregion
 
 public class RayGun : MonoBehaviour
 {
@@ -14,13 +12,13 @@ public class RayGun : MonoBehaviour
     [SerializeField] private float shootingRate = 0.2f;
     [SerializeField] private LayerMask shootingMask;
     [SerializeField] private float maxDistance = 100;
-    
+
     [SerializeField] private float spreadRange = 0.1f;
-    
+
     [SerializeField] private LineRenderer rayVisualizer;
 
     private float _shootingTimer;
-    
+
     private void Start()
     {
         rayVisualizer.enabled = false;
@@ -35,6 +33,12 @@ public class RayGun : MonoBehaviour
         {
             Shoot();
         }
+    }
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawRay(shootingPoint.position, shootingPoint.forward * maxDistance);
     }
 
     private void Shoot()
@@ -60,11 +64,5 @@ public class RayGun : MonoBehaviour
             rayVisualizer.SetPosition(1, hitInfo.point);
         else
             rayVisualizer.SetPosition(1, ray.origin + ray.direction * maxDistance);
-    }
-
-    private void OnDrawGizmos()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawRay(shootingPoint.position, shootingPoint.forward * maxDistance);
     }
 }

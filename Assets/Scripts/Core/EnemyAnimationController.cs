@@ -1,17 +1,15 @@
-using System;
+#region
+
 using UnityEngine;
-using Random = UnityEngine.Random;
+
+#endregion
 
 namespace Core
 {
     [RequireComponent(typeof(Animator))]
     public class EnemyAnimationController : MonoBehaviour
     {
-        [SerializeField] private Enemy enemy;
-        private IEnemyController _enemyController;
-        private Animator _animator;
-        private int _currentState;
-        private float _lockedTill;
+        private const float TRANSITION_DURATION = 0.1f;
         private static readonly int Idle = Animator.StringToHash("Idle");
         private static readonly int ReactionHit = Animator.StringToHash("ReactionHit");
         private static readonly int Death = Animator.StringToHash("Death");
@@ -20,22 +18,13 @@ namespace Core
         private static readonly int Scream = Animator.StringToHash("Scream");
         private static readonly int Attack = Animator.StringToHash("Attack");
         private static readonly int Walk = Animator.StringToHash("Walk");
+        [SerializeField] private Enemy enemy;
+        private Animator _animator;
+        private int _currentState;
+        private IEnemyController _enemyController;
+        private float _lockedTill;
 
         private float _reactionAnimationDuration;
-
-        private void UpdateAnimClipTimes()
-        {
-            AnimationClip[] clips = _animator.runtimeAnimatorController.animationClips;
-            foreach (AnimationClip clip in clips)
-            {
-                switch (clip.name)
-                {
-                    case "Zombie Reaction Hit":
-                        _reactionAnimationDuration = clip.length;
-                        break;
-                }
-            }
-        }
 
         private void Awake()
         {
@@ -47,8 +36,6 @@ namespace Core
         {
             UpdateAnimClipTimes();
         }
-
-        private const float TRANSITION_DURATION = 0.1f;
 
         private void Update()
         {
@@ -65,6 +52,20 @@ namespace Core
             {
                 _animator.CrossFade(state, TRANSITION_DURATION, 0);
                 _currentState = state;
+            }
+        }
+
+        private void UpdateAnimClipTimes()
+        {
+            AnimationClip[] clips = _animator.runtimeAnimatorController.animationClips;
+            foreach (AnimationClip clip in clips)
+            {
+                switch (clip.name)
+                {
+                    case "Zombie Reaction Hit":
+                        _reactionAnimationDuration = clip.length;
+                        break;
+                }
             }
         }
 

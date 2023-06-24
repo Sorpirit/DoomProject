@@ -1,20 +1,25 @@
+#region
+
 using System;
 using UnityEngine;
+
+#endregion
 
 namespace Core
 {
     public class HealthSystem : MonoBehaviour, IDamageReceiver
     {
+        private const float DEFAULT_HEALTH = 100f;
         [SerializeField] private StatsSO stats;
         private float _currentHealth;
-        private const float DEFAULT_HEALTH = 100f;
-        public event EventHandler OnDead;
-        public event EventHandler OnHit;
 
         private void Start()
         {
             _currentHealth = stats is not null ? stats.maxHealth : DEFAULT_HEALTH;
         }
+
+        public event EventHandler OnDead;
+        public event EventHandler OnHit;
 
         public void TakeDamage(DamageInfo damageInfo)
         {
