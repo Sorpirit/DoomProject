@@ -7,7 +7,6 @@ namespace Core
     {
         private void Awake()
         {
-            //init input
             var i = InputManager.Instance;
         }
     }
