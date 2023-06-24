@@ -14,6 +14,7 @@ namespace Core
         [SerializeField] private Collider bodyCollider;
 
         private State _currentState;
+        public Collider BodyCollider => bodyCollider;
 
         public bool IsHit { get; private set; }
         public bool IsDead => _currentState == State.Dead;
