@@ -32,7 +32,7 @@ namespace Core
         public bool GetShootInput()
         {
             
-            return _playerInput.Player.Shoot.triggered;
+            return _playerInput.Player.Shoot.IsPressed();
         }
 
         public bool GetReloadInput()

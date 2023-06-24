@@ -32,7 +32,7 @@ namespace WeaponSystem
         {
             if (_weapon.CurrentAmountOfBullets!=0 && _canShootFireRate && _currentState == WeaponState.ReadyToShoot && _enoughBullets)
             {
-                _latsTimeShot = Time.deltaTime;
+                _latsTimeShot = Time.time;
                 _weapon.Shoot();
                 _rayGun.Shoot();
                 _canShootFireRate = false;
