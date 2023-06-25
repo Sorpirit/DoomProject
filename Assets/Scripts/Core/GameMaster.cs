@@ -5,6 +5,8 @@ using EnemySystem;
 using StatsSystem;
 using UI;
 using UnityEngine;
+using UnityEngine.UIElements;
+using Cursor = UnityEngine.Cursor;
 
 #endregion
 
@@ -19,6 +21,8 @@ namespace Core
         [Header("UI systems")]
         [Space(10)]
         [SerializeField] private SanityUIComponent sanityUI;
+        [SerializeField] private CursorUIComponent cursor;
+        [SerializeField] private GameObject deathScreen;
 
         [Header("Level systems")]
         [Space(10)]
@@ -55,10 +59,12 @@ namespace Core
 
         private void Start()
         {
-            Cursor.lockState = CursorLockMode.Locked;
+            cursor.Lock();
             
             sanityUI.Init(sanityController);
-            
+            sanityController.OnDead += () => deathScreen.SetActive(true);
+            sanityController.OnDead += () => cursor.Unlock();
+
             InitGameLoop();
         }
 
