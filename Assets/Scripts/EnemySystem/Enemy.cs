@@ -1,8 +1,10 @@
 ﻿using System;
 using EnemySystem.AI;
+using JetBrains.Annotations;
 using StatsSystem;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Serialization;
 
 namespace EnemySystem
 {
@@ -12,11 +14,12 @@ namespace EnemySystem
         [SerializeField] private HuntAI huntAI;
         [SerializeField] private Collider bodyCollider;
         [SerializeField] private EnemyAttacker enemyAttacker;
-
+        [SerializeField] [CanBeNull] private EnemyHitResponder enemyHitResponder;
+        [SerializeField] private EnemyAnimationController enemyAnimationController;
+        
         private State _currentState;
         public Collider BodyCollider => bodyCollider;
         public HealthSystem HealthSystem => healthSystem;
-
         public bool IsHit { get; private set; }
         public bool IsDead => HealthSystem.CurrentHealth <= 0f;
         public bool IsAttacking => _currentState == State.Attacking;
@@ -27,31 +30,31 @@ namespace EnemySystem
         {
             healthSystem.OnDead += HealthSystemOnDead;
             healthSystem.OnHit += HealthSystemOnHit;
-            enemyAttacker.OnAttackPerformed += EnemyAttackerOnAttackPerformed;
+            enemyAttacker.OnAttackStarted += EnemyAttackerOnAttackStarted;
+            enemyAnimationController.OnAttackAnimationFinished += EnemyAnimationControllerOnAttackAnimationFinished;
         }
 
-        private void EnemyAttackerOnAttackPerformed(object sender, EventArgs e)
+        private void EnemyAnimationControllerOnAttackAnimationFinished(object sender, EventArgs e)
+        {
+            enemyAttacker.AttackAnimationFinished = true;
+            huntAI.StartMoving();
+            _currentState = State.Chasing;
+        }
+
+        private void EnemyAttackerOnAttackStarted(object sender, EventArgs e)
         {
             _currentState = State.Attacking;
-        }
-
-        private void Update()
-        {
-            if (Input.GetKeyDown(KeyCode.Y))
-            {
-                _currentState = State.Attacking;
-            }
+            if (enemyHitResponder is not null) enemyHitResponder.SetAttackStarted();
+            huntAI.StopAgent();
         }
 
         private void LateUpdate()
         {
             ResetOneTimeStuff();
-            _currentState = State.Chasing;
         }
 
         private void HealthSystemOnHit(object sender, EventArgs e)
         {
-            _currentState = State.Chasing;
             IsHit = true;
         }
 

@@ -5,5 +5,6 @@
         public bool IsHit { get; }
         public bool IsDead { get; }
         public bool IsChasing { get; }
+        public bool IsAttacking { get; }
     }
 }

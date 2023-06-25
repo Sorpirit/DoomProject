@@ -1,7 +1,9 @@
 #region
 
+using System;
 using Core;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 #endregion
 
@@ -33,6 +35,8 @@ namespace EnemySystem
             _enemyController = enemy.GetComponent<IEnemyController>();
             _animator = GetComponent<Animator>();
         }
+
+        public event EventHandler OnAttackAnimationFinished; 
 
         private void Start()
         {
@@ -91,7 +95,15 @@ namespace EnemySystem
                 return LockState(ReactionHit, _reactionAnimationDuration);
             }
 
-            if (Time.time < _lockedTill) return _currentState;
+            if (Time.time < _lockedTill)
+            {
+                return _currentState;
+            }
+
+            if (_currentState == Attack)
+            {
+                OnAttackAnimationFinished?.Invoke(this, EventArgs.Empty);
+            }
 
 
             if (_enemyController.IsAttacking)
