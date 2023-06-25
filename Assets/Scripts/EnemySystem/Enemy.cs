@@ -1,6 +1,7 @@
 ﻿using System;
 using Core;
 using EnemySystem.AI;
+using ObjectSystem;
 using StatsSystem;
 using UnityEngine;
 
@@ -11,6 +12,8 @@ namespace EnemySystem
         [SerializeField] private HealthSystem healthSystem;
         [SerializeField] private HuntAI huntAI;
         [SerializeField] private Collider bodyCollider;
+
+        [SerializeField] private HealthPill healthPill;
 
         private State _currentState;
         public Collider BodyCollider => bodyCollider;
@@ -26,6 +29,7 @@ namespace EnemySystem
         {
             healthSystem.OnDead += HealthSystemOnDead;
             healthSystem.OnHit += HealthSystemOnHit;
+            healthSystem.OnDead += ()=> healthPill.Spawn(gameObject.transform);
         }
 
         private void LateUpdate()
@@ -39,7 +43,7 @@ namespace EnemySystem
             IsHit = true;
         }
 
-        private void HealthSystemOnDead(object sender, EventArgs e)
+        private void HealthSystemOnDead()
         {
             // Destroy(healthSystem);
             // Destroy(huntAI);

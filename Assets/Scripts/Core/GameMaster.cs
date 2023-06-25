@@ -38,6 +38,7 @@ namespace Core
 
 
         public DebugActions Debug => debug;
+        public SanityController SanityController => sanityController;
 
         private void Awake()
         { 

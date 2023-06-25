@@ -19,7 +19,7 @@ namespace StatsSystem
             _currentHealth = stats is not null ? stats.maxHealth : DEFAULT_HEALTH;
         }
 
-        public event EventHandler OnDead;
+        public event Action OnDead;
         public event EventHandler OnHit;
 
         public void TakeDamage(DamageInfo damageInfo)
@@ -27,7 +27,7 @@ namespace StatsSystem
             _currentHealth -= damageInfo.Damage;
             if (_currentHealth <= 0)
             {
-                OnDead?.Invoke(this, EventArgs.Empty);
+                OnDead?.Invoke();
             }
             else
             {

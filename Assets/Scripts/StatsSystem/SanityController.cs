@@ -46,6 +46,18 @@ namespace StatsSystem
             DecreaseSanity(damageInfo.Damage);
         }
 
+        public void IncreaseSanity(float addedSanityPoints)
+        {
+            if (_sanityPoints+addedSanityPoints > _currentMaxSanityPoints)
+            {
+                _sanityPoints = _currentMaxSanityPoints;
+            }
+            else
+            {
+                _sanityPoints += addedSanityPoints;
+            }
+        }
+
         private void DecreaseSanity(float value)
         {
             _sanityPoints -= value;

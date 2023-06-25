@@ -50,7 +50,6 @@ namespace EnemySystem
                 }
             }
         }
-
         public void Init(Spawner enemySpawner)
         {
             _spawner = enemySpawner;
@@ -62,7 +61,7 @@ namespace EnemySystem
             RestCounter();
         }
         
-        private void OnEnemyKilled(object sender, EventArgs e)
+        private void OnEnemyKilled()
         {
             _killedEnemies++;
             if(_killedEnemies == _spawnTarget)
