@@ -1,4 +1,6 @@
-namespace Core
+using Core;
+
+namespace StatsSystem
 {
     public interface IDamageReceiver
     {

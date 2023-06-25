@@ -1,10 +1,6 @@
-#region
-
 using UnityEngine;
 
-#endregion
-
-namespace Core
+namespace DebugHelpers
 {
     public class FollowPosition : MonoBehaviour
     {

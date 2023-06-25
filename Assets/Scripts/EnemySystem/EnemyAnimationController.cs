@@ -1,10 +1,11 @@
 #region
 
+using Core;
 using UnityEngine;
 
 #endregion
 
-namespace Core
+namespace EnemySystem
 {
     [RequireComponent(typeof(Animator))]
     public class EnemyAnimationController : MonoBehaviour

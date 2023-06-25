@@ -1,6 +1,8 @@
 #region
 
 using DebugHelpers;
+using EnemySystem;
+using StatsSystem;
 using UI;
 using UnityEngine;
 
@@ -20,7 +22,7 @@ namespace Core
 
         [Header("Level systems")]
         [Space(10)]
-        [SerializeField] private LevelSystem levelSystem;
+        [SerializeField] private LevelSystem.LevelSystem levelSystem;
         
         [Header("Enemy systems")]
         [Space(10)]
@@ -38,9 +40,7 @@ namespace Core
         public DebugActions Debug => debug;
 
         private void Awake()
-        {
-            var input = InputManager.Instance;
-            
+        { 
             if (Instance != null)
             {
                 Destroy(gameObject);
@@ -48,6 +48,9 @@ namespace Core
             }
 
             Instance = this;
+            
+            //Init input system
+            var input = InputManager.Instance;
         }
 
         private void Start()

@@ -1,13 +1,10 @@
-﻿#region
-
-using System;
+﻿using System;
 using System.Linq;
+using Core;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
-#endregion
-
-namespace Core
+namespace EnemySystem
 {
     public class Spawner : MonoBehaviour
     {

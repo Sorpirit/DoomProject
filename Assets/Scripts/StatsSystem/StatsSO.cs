@@ -4,7 +4,7 @@ using UnityEngine;
 
 #endregion
 
-namespace Core
+namespace StatsSystem
 {
     [CreateAssetMenu()]
     public class StatsSO : ScriptableObject

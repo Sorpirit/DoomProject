@@ -1,11 +1,12 @@
 #region
 
 using System;
+using Core;
 using UnityEngine;
 
 #endregion
 
-namespace Core
+namespace StatsSystem
 {
     public class HealthSystem : MonoBehaviour, IDamageReceiver
     {

@@ -1,5 +1,5 @@
-﻿using System;
-using Core;
+﻿using Core;
+using StatsSystem;
 using UnityEngine;
 
 namespace WeaponSystem

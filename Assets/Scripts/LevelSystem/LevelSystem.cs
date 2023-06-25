@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Core
+namespace LevelSystem
 {
     public class LevelSystem : MonoBehaviour
     {
