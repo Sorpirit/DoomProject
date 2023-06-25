@@ -12,6 +12,10 @@ namespace Core
         public event EventHandler OnLevelLoose; 
         public static GameManager Instance { get; private set; }
 
+        public void AllEnemiesFinished()
+        {
+        }
+
         private void Awake()
         {
             Instance = this;

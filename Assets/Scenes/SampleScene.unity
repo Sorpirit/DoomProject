@@ -3964,6 +3964,17 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemySpawnerController
       objectReference: {fileID: 0}
+    - target: {fileID: 4457743966686417199, guid: a5081d992afed254984327ac4d1a3941,
+        type: 3}
+      propertyPath: spawner
+      value: 
+      objectReference: {fileID: 1550700466}
+    - target: {fileID: 4457743966686417199, guid: a5081d992afed254984327ac4d1a3941,
+        type: 3}
+      propertyPath: enemySpawnerDataSO
+      value: 
+      objectReference: {fileID: 11400000, guid: 4ff4e64f9d9bb8e4d9a6167e4ba5236f,
+        type: 2}
     - target: {fileID: 8425731582283268659, guid: a5081d992afed254984327ac4d1a3941,
         type: 3}
       propertyPath: m_RootOrder
