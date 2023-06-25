@@ -27,7 +27,6 @@ namespace StatsSystem
         private void Start()
         {
             InitValues();
-            Debug.Log(sanityDataSO is null);
         }
 
         private void Update()
