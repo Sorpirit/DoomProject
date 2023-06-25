@@ -26,6 +26,7 @@ namespace EnemySystem
         private float _lockedTill;
 
         private float _reactionAnimationDuration;
+        private float _attackAnimationDuration;
 
         private void Awake()
         {
@@ -66,6 +67,9 @@ namespace EnemySystem
                     case "Zombie Reaction Hit":
                         _reactionAnimationDuration = clip.length;
                         break;
+                    case "zombieAttack":
+                        _attackAnimationDuration = clip.length;
+                        break;
                 }
             }
         }
@@ -90,6 +94,10 @@ namespace EnemySystem
             if (Time.time < _lockedTill) return _currentState;
 
 
+            if (_enemyController.IsAttacking)
+            {
+                return LockState(Attack, _attackAnimationDuration);
+            }
             if (_enemyController.IsChasing)
             {
                 return Run;

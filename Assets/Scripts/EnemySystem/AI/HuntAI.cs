@@ -23,5 +23,10 @@ namespace EnemySystem.AI
         {
             agent.SetDestination(_target.position);
         }
+
+        public void StopAgent()
+        {
+            agent.isStopped = true;
+        }
     }
 }

@@ -13,6 +13,7 @@ namespace StatsSystem
         private const float DEFAULT_HEALTH = 100f;
         [SerializeField] private StatsSO stats;
         private float _currentHealth;
+        public float CurrentHealth => _currentHealth;
 
         private void Start()
         {

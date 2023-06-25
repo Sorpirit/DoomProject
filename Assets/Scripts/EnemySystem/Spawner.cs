@@ -15,6 +15,8 @@ namespace EnemySystem
 
         private readonly Collider[] _overlapColliderBuffer = new Collider[1];
 
+        public event EventHandler<SpawnerEventArgs> OnEnemySpawned;
+
         private void Start()
         {
             SetValuesNormalized();
@@ -40,9 +42,11 @@ namespace EnemySystem
                 spawned = TrySpawnInPoint(point, nextEnemy.collider, nextEnemy.enemyPrefab, out enemy);
             }
 
+            OnEnemySpawned?.Invoke(this, new SpawnerEventArgs() { spawnPoint = enemy.transform.position });
+
             return enemy;
         }
-        
+
         private void SetColliders()
         {
             for (var i = 0; i < spawnVariants.Length; i++)
@@ -119,6 +123,11 @@ namespace EnemySystem
                 spawnVariants[i].ValueNormalized = spawnVariants[i].value / totalValue;
             }
         }
+    }
+
+    public class SpawnerEventArgs : EventArgs
+    {
+        public Vector3 spawnPoint;
     }
 
     [Serializable]
