@@ -2,7 +2,6 @@
 
 using System;
 using System.Linq;
-using Data.Input;
 using UnityEngine;
 using Random = UnityEngine.Random;
 
