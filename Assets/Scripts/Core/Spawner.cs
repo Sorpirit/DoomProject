@@ -27,19 +27,25 @@ namespace Core
         private void Update()
         {
             if (Input.GetKeyDown(KeyCode.K))
-            {
-                bool spawned = false;
-                var nextEnemy = GetNextEnemy();
-                while (!spawned)
-                {
-                    Vector3 point = GenerateRandomPointInCircle(Player.Instance.transform.position, minSpawnRadius,
-                        maxSpawnRadius);
-                    point.y = 0.2f;
-                    spawned = TrySpawnInPoint(point, nextEnemy.collider, nextEnemy.enemyPrefab, out Enemy enemy);
-                }
-            }
+                SpawnEnemy();
         }
 
+        public Enemy SpawnEnemy()
+        {
+            Enemy enemy = null;
+            bool spawned = false;
+            var nextEnemy = GetNextEnemy();
+            while (!spawned)
+            {
+                Vector3 point = GenerateRandomPointInCircle(Player.Instance.transform.position, minSpawnRadius,
+                    maxSpawnRadius);
+                point.y = 0.2f;
+                spawned = TrySpawnInPoint(point, nextEnemy.collider, nextEnemy.enemyPrefab, out enemy);
+            }
+
+            return enemy;
+        }
+        
         private void SetColliders()
         {
             for (var i = 0; i < spawnVariants.Length; i++)

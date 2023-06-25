@@ -18,6 +18,15 @@ namespace Core
         [Space(10)]
         [SerializeField] private SanityUIComponent sanityUI;
 
+        [Header("Level systems")]
+        [Space(10)]
+        [SerializeField] private LevelSystem levelSystem;
+        
+        [Header("Enemy systems")]
+        [Space(10)]
+        [SerializeField] private EnemySpawnerController enemySpawnerController;
+        [SerializeField] private Spawner enemySpawner;
+        
         [Header("Debug systems")]
         [Space(10)]
         [SerializeField] private DebugActions debug;
@@ -44,7 +53,26 @@ namespace Core
         private void Start()
         {
             Cursor.lockState = CursorLockMode.Locked;
+            
             sanityUI.Init(sanityController);
+            
+            InitGameLoop();
+        }
+
+        private void InitGameLoop()
+        {
+            if (enemySpawnerController == null || enemySpawner == null || levelSystem == null)
+            {
+                UnityEngine.Debug.LogWarning("GameMaster: Game loops are not loaded. Game loop systems are not set!");
+                return;
+            }
+                
+            
+            enemySpawnerController.Init(enemySpawner);
+            levelSystem.OnLevelStarted += enemySpawnerController.LevelStarted;
+            enemySpawnerController.OnAllEnemiesKilled += () => levelSystem.GoToNextLevel();
+            
+            levelSystem.StartFirstLevel();
         }
     }
 }
