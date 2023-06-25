@@ -6,6 +6,5 @@ namespace ObjectSystem
 {
     public class PlayerPicker: MonoBehaviour
     {
-        [field: SerializeField] public SanityController SanityController { get; private set; }
     }
 }

@@ -13,7 +13,7 @@ namespace ObjectSystem
 
         public void OnPicked()
         {
-            _playerSanityController.IncreaseSanity(healAmount);
+            SanityController.Instance.IncreaseSanity(healAmount);
             Destroy(gameObject);
         }
 
@@ -41,7 +41,6 @@ namespace ObjectSystem
         {
             if (other.GetComponent<PlayerPicker>())
             {
-                _playerSanityController = other.GetComponent<PlayerPicker>().SanityController;
                 OnPicked();
             }
         }
