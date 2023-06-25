@@ -14,7 +14,7 @@ namespace Core
     {
         [Header("Player systems")]
         [Space(10)]
-        [SerializeField] private SanityController sanityController;
+        // [SerializeField] private SanityController sanityController;
 
         [Header("UI systems")]
         [Space(10)]
@@ -60,7 +60,7 @@ namespace Core
         {
             // cursor.Lock();
             
-            sanityUI.Init(sanityController);
+            // sanityUI.Init(sanityController);
             // sanityController.OnDead += () => deathScreen.SetActive(true);
             // sanityController.OnDead += () => cursor.Unlock();
 

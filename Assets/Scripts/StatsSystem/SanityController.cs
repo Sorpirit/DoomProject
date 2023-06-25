@@ -1,30 +1,23 @@
-#region
-
-using System;
-using Core;
+﻿using System;
 using UnityEngine;
-
-#endregion
 
 namespace StatsSystem
 {
-    public class SanityController : MonoBehaviour, IDamageReceiver
+    public class SanityController : MonoBehaviour
     {
-        [SerializeField, Tooltip("Should be in order from biggest to smallest")] private float[] maxSanityPoints;
-        [SerializeField] private float degradationRate = 0.1f;
-        public static SanityController Instance { get; private set; }
-        private float _currentMaxSanityPoints;
+        [SerializeField] private SanityDataSO sanityDataSO;
+        private float _sanityPerStage;
 
-        private int _currentSanityLevel;
-        private float _nextLevelMaxSanityPoints;
-        private float _sanityPoints;
+        private int _currentSanityStage;
+        private float _currentSanity;
+        
+        public int CurrentSanityStage => _currentSanityStage;
+        public float CurrentSanity => _currentSanity;
+        public float CurrentSanityNormalized => _currentSanity / sanityDataSO.maxSanity;
 
-        public int CurrentSanityLevel => _currentSanityLevel;
-
-        public float[] MaxSanityPoints => maxSanityPoints;
-
-        public float SanityPoints => _sanityPoints;
-        public event Action OnDead;
+        public static SanityController Instance;
+        public event EventHandler OnSanityStageChanged;
+        public event EventHandler OnZeroSanity; 
 
         private void Awake()
         {
@@ -33,42 +26,51 @@ namespace StatsSystem
 
         private void Start()
         {
-            _currentSanityLevel = 0;
-            _currentMaxSanityPoints = maxSanityPoints[_currentSanityLevel];
-            _nextLevelMaxSanityPoints = maxSanityPoints.Length >= 2 ? maxSanityPoints[_currentSanityLevel + 1] : 0;
-            _sanityPoints = _currentMaxSanityPoints;
-        
-            //GameMaster.Instance.Debug.AddQuickAction("1k sanity", () => _sanityPoints = 1000);
+            InitValues();
         }
 
         private void Update()
         {
-            DecreaseSanity(degradationRate * Time.deltaTime);
+            DecreaseSanity(sanityDataSO.startingDegradationRate * Time.deltaTime);
         }
 
-        public event Action OnMaxLevelChanged;
-
-        public void TakeDamage(DamageInfo damageInfo)
+        private void InitValues()
         {
-            DecreaseSanity(damageInfo.Damage);
+            _sanityPerStage = sanityDataSO.maxSanity / sanityDataSO.stagesCount;
+            _currentSanityStage = 0;
+            _currentSanity = sanityDataSO.maxSanity;
         }
 
-        private void DecreaseSanity(float value)
+        public void DecreaseSanity(float value)
         {
-            _sanityPoints -= value;
-            if (_sanityPoints <= 0)
+            if (value < 0f)
             {
-                OnDead?.Invoke();
-                return;
+                Debug.LogError("Decrease value should be positive");
+            }
+            _currentSanity -= value;
+            if (_currentSanity < 0f)
+            {
+                OnZeroSanity?.Invoke(this, EventArgs.Empty);
             }
 
-            if (_sanityPoints <= _nextLevelMaxSanityPoints)
+            int updatedSanityStage = (int)(_currentSanity / _sanityPerStage);
+            if (updatedSanityStage != _currentSanityStage)
             {
-                _currentSanityLevel++;
-                _currentMaxSanityPoints = maxSanityPoints[_currentSanityLevel];
-                _nextLevelMaxSanityPoints = _currentSanityLevel + 1 < maxSanityPoints.Length ? maxSanityPoints[_currentSanityLevel + 1] : 0;
-                OnMaxLevelChanged?.Invoke();
+                OnSanityStageChanged?.Invoke(this, EventArgs.Empty);
             }
+
+            _currentSanityStage = updatedSanityStage;
+        }
+
+        public void IncreaseSanity(float value)
+        {
+            if (value < 0f)
+            {
+                Debug.LogError("Increase value should be positive");
+            }
+            
+            float maxSanityPossible = (_currentSanityStage + 1) * _sanityPerStage;
+            _currentSanity = Mathf.Min(_currentSanity + value, maxSanityPossible);
         }
     }
 }

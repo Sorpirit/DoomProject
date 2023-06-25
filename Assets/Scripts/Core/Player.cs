@@ -36,7 +36,7 @@ namespace Core
 
         private void HurtResponderOnDamageReceived(object sender, ReceivedDamageEventArgs e)
         {
-            SanityController.Instance.TakeDamage(new DamageInfo(e.damageReceived, 0));
+            SanityController.Instance.DecreaseSanity(e.damageReceived);
         }
 
         private void Update()

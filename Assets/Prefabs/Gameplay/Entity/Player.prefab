@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1472769505115396099}
   - component: {fileID: 3785583369319928180}
   - component: {fileID: 1789965109360057606}
-  - component: {fileID: 2182318775481619995}
   - component: {fileID: 2260578970592166916}
   m_Layer: 6
   m_Name: Player
@@ -83,6 +82,7 @@ MonoBehaviour:
   weapon: {fileID: 7619867903381881690}
   rayGun: {fileID: 1789965109360057606}
   bulletsUIComponent: {fileID: 0}
+  hurtResponder: {fileID: 0}
 --- !u!114 &3785583369319928180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,24 +129,6 @@ MonoBehaviour:
   bullet: {fileID: 1556664061214972299, guid: 944da66bbb1476d4582a3b2d84ede53f, type: 3}
   rayVisualizer: {fileID: 6675219714199123667}
   weapon: {fileID: 7619867903381881690}
---- !u!114 &2182318775481619995
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 937611564398382988}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f04c0b88da84d24e884ecfb6760016a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  maxSanityPoints:
-  - 100
-  - 80
-  - 50
-  - 30
-  degradationRate: 0.1
 --- !u!114 &2260578970592166916
 MonoBehaviour:
   m_ObjectHideFlags: 0
