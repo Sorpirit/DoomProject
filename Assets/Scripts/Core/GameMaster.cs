@@ -19,7 +19,7 @@ namespace Core
         [Header("UI systems")]
         [Space(10)]
         [SerializeField] private SanityUIComponent sanityUI;
-        [SerializeField] private CursorUIComponent cursor;
+        // [SerializeField] private CursorUIComponent cursor;
         // [SerializeField] private GameObject deathScreen;
         // [SerializeField] private GameObject winScreen;
 
@@ -58,11 +58,11 @@ namespace Core
 
         private void Start()
         {
-            cursor.Lock();
+            // cursor.Lock();
             
             sanityUI.Init(sanityController);
             // sanityController.OnDead += () => deathScreen.SetActive(true);
-            sanityController.OnDead += () => cursor.Unlock();
+            // sanityController.OnDead += () => cursor.Unlock();
 
             InitGameLoop();
         }
@@ -80,7 +80,7 @@ namespace Core
             levelSystem.OnLevelStarted += enemySpawnerController.LevelStarted;
             enemySpawnerController.OnAllEnemiesKilled += () => levelSystem.GoToNextLevel();
             // levelSystem.OnGameEnd += () => winScreen.SetActive(true);
-            levelSystem.OnGameEnd += () => cursor.Unlock();
+            // levelSystem.OnGameEnd += () => cursor.Unlock();
             
             levelSystem.StartFirstLevel();
         }

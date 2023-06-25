@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.Video;
 
@@ -14,6 +15,11 @@ namespace Core
         private void Awake()
         {
             Instance = this;
+        }
+
+        private void Start()
+        {
+            OnLevelStarted?.Invoke(this, EventArgs.Empty);
         }
     }
 }
