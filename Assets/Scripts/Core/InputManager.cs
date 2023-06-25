@@ -43,5 +43,10 @@ namespace Core
         {
             return _playerInput.Player.Reload.triggered;
         }
+        
+        public bool GetJumpInput()
+        {
+            return _playerInput.Player.Jump.IsPressed();
+        }
     }
 }

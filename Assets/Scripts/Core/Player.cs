@@ -4,7 +4,7 @@ using UnityEngine;
 
 #endregion
 
-namespace Data.Input
+namespace Core
 {
     public class Player : MonoBehaviour
     {
