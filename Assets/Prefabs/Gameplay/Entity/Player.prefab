@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4984471754802883454}
   - component: {fileID: 3392517565665919205}
+  - component: {fileID: 1472769505115396099}
   - component: {fileID: 3785583369319928180}
   - component: {fileID: 1789965109360057606}
   - component: {fileID: 2182318775481619995}
-  - component: {fileID: 1472769505115396099}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -38,7 +38,7 @@ Transform:
   - {fileID: 5178112503881997962}
   - {fileID: 2748404946619400380}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &3392517565665919205
 Rigidbody:
@@ -67,6 +67,21 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 1
+--- !u!114 &1472769505115396099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 937611564398382988}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 84314b47ace246858d29362fb5f4caae, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  weapon: {fileID: 7619867903381881690}
+  rayGun: {fileID: 1789965109360057606}
+  bulletsUIComponent: {fileID: 0}
 --- !u!114 &3785583369319928180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -112,7 +127,7 @@ MonoBehaviour:
     m_Bits: 145
   bullet: {fileID: 1556664061214972299, guid: 944da66bbb1476d4582a3b2d84ede53f, type: 3}
   rayVisualizer: {fileID: 6675219714199123667}
-  weapon: {fileID: 0}
+  weapon: {fileID: 7619867903381881690}
 --- !u!114 &2182318775481619995
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -131,18 +146,6 @@ MonoBehaviour:
   - 50
   - 30
   degradationRate: 0.1
---- !u!114 &1472769505115396099
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 937611564398382988}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 84314b47ace246858d29362fb5f4caae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1374887237035723795
 GameObject:
   m_ObjectHideFlags: 0
@@ -371,6 +374,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2748404946619400380}
+  - component: {fileID: 7619867903381881690}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Untagged
@@ -395,6 +399,28 @@ Transform:
   m_Father: {fileID: 4984471754802883454}
   m_RootOrder: -1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7619867903381881690
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3837580133820489511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ebf155ff679649a5ab02796fb483c64d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <FireRate>k__BackingField: 2
+  <ReloadTime>k__BackingField: 3
+  <MaxAmountOfBullets>k__BackingField: 5
+  <PushBackForce>k__BackingField: 2
+  <CurrentAmountOfBullets>k__BackingField: 5
+  <Spread>k__BackingField: 0.05
+  <MaxDistance>k__BackingField: 90
+  <ShootForce>k__BackingField: 300
+  <BulletLifeTime>k__BackingField: 5
+  <Damage>k__BackingField: 10
 --- !u!1 &3963377686732815099
 GameObject:
   m_ObjectHideFlags: 0

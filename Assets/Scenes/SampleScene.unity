@@ -1932,7 +1932,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -9.6, y: 439.7}
+  m_AnchoredPosition: {x: -9.599976, y: 439.7}
   m_SizeDelta: {x: 243.23, y: 62.9}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1469680539
@@ -2974,7 +2974,7 @@ PrefabInstance:
     - target: {fileID: 2844661726272219901, guid: 9daf0ad614bc5cd4ca4f4856384047ae,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2844661726272219901, guid: 9daf0ad614bc5cd4ca4f4856384047ae,
         type: 3}
@@ -2984,22 +2984,22 @@ PrefabInstance:
     - target: {fileID: 2844661726272219901, guid: 9daf0ad614bc5cd4ca4f4856384047ae,
         type: 3}
       propertyPath: m_AnchorMin.x
-      value: 0.5
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2844661726272219901, guid: 9daf0ad614bc5cd4ca4f4856384047ae,
         type: 3}
       propertyPath: m_AnchorMin.y
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2844661726272219901, guid: 9daf0ad614bc5cd4ca4f4856384047ae,
         type: 3}
       propertyPath: m_SizeDelta.x
-      value: 1920
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2844661726272219901, guid: 9daf0ad614bc5cd4ca4f4856384047ae,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1080
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2844661726272219901, guid: 9daf0ad614bc5cd4ca4f4856384047ae,
         type: 3}
@@ -3044,7 +3044,7 @@ PrefabInstance:
     - target: {fileID: 2844661726272219901, guid: 9daf0ad614bc5cd4ca4f4856384047ae,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -540
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2844661726272219901, guid: 9daf0ad614bc5cd4ca4f4856384047ae,
         type: 3}
@@ -3346,22 +3346,7 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
-    - target: {fileID: 1789965109360057606, guid: cdcc9b9327e577e4ebaba270e005629a,
-        type: 3}
-      propertyPath: weapon
-      value: 
-      objectReference: {fileID: 7521257191330064171}
-    - target: {fileID: 3785583369319928180, guid: cdcc9b9327e577e4ebaba270e005629a,
-        type: 3}
-      propertyPath: rayGun
-      value: 
-      objectReference: {fileID: 7521257191330064172}
-    - target: {fileID: 3785583369319928180, guid: cdcc9b9327e577e4ebaba270e005629a,
-        type: 3}
-      propertyPath: weapon
-      value: 
-      objectReference: {fileID: 7521257191330064171}
-    - target: {fileID: 3785583369319928180, guid: cdcc9b9327e577e4ebaba270e005629a,
+    - target: {fileID: 1472769505115396099, guid: cdcc9b9327e577e4ebaba270e005629a,
         type: 3}
       propertyPath: bulletsUIComponent
       value: 
@@ -3424,52 +3409,8 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 3837580133820489511, guid: cdcc9b9327e577e4ebaba270e005629a,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 7521257191330064171}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cdcc9b9327e577e4ebaba270e005629a, type: 3}
---- !u!1 &7521257191330064170 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3837580133820489511, guid: cdcc9b9327e577e4ebaba270e005629a,
-    type: 3}
-  m_PrefabInstance: {fileID: 7521257191330064169}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &7521257191330064171
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7521257191330064170}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ebf155ff679649a5ab02796fb483c64d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  <FireRate>k__BackingField: 2
-  <ReloadTime>k__BackingField: 3
-  <MaxAmountOfBullets>k__BackingField: 5
-  <PushBackForce>k__BackingField: 2
-  <CurrentAmountOfBullets>k__BackingField: 5
-  <Spread>k__BackingField: 0.05
-  <MaxDistance>k__BackingField: 90
-  <ShootForce>k__BackingField: 300
-  <BulletLifeTime>k__BackingField: 5
-  <Damage>k__BackingField: 10
---- !u!114 &7521257191330064172 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1789965109360057606, guid: cdcc9b9327e577e4ebaba270e005629a,
-    type: 3}
-  m_PrefabInstance: {fileID: 7521257191330064169}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 097244145001c3142aa109e53213c21f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &7936155561541833398
 PrefabInstance:
   m_ObjectHideFlags: 0

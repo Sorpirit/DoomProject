@@ -16,7 +16,7 @@ namespace WeaponSystem
         private bool _enoughBullets;
         private float _startReloadTime;
 
-        public void Init(Weapon weapon, RayGun rayGun, BulletsUIComponent bulletsUIComponent)
+        public WeaponSystemController(Weapon weapon, RayGun rayGun, BulletsUIComponent bulletsUIComponent)
         {
             _weapon = weapon;
             _weapon.Init();
