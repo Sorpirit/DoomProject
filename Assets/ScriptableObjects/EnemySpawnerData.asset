@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   spawnDelay: 5
   spawnRate: 2
-  enemiesCount: 100
+  enemiesCount: 5

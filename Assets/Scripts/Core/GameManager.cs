@@ -14,6 +14,7 @@ namespace Core
 
         public void AllEnemiesFinished()
         {
+            OnLevelFinished?.Invoke(this, EventArgs.Empty);
         }
 
         private void Awake()
