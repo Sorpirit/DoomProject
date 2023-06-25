@@ -13,6 +13,7 @@ namespace Core
         [Header("Weapon systems")]
         [SerializeField] private Weapon weapon;
         [SerializeField] private RayGun rayGun;
+        [SerializeField] private FiringPartRotation _firingPartRotation;
         
         [Space(10)]
         [Header("UI systems")]
@@ -27,7 +28,7 @@ namespace Core
         
         private void Start()
         {
-            _weaponSystemController = new WeaponSystemController(weapon, rayGun, bulletsUIComponent);
+            _weaponSystemController = new WeaponSystemController(weapon, rayGun, bulletsUIComponent, _firingPartRotation);
         }
 
         private void Update()

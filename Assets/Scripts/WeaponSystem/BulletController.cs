@@ -1,4 +1,5 @@
-﻿using Core;
+﻿using System;
+using Core;
 using StatsSystem;
 using UnityEngine;
 
@@ -8,6 +9,7 @@ namespace WeaponSystem
     {
         private Weapon _weapon;
         private float _maxAliveTime;
+        private Rigidbody _bulletRb;
         public void Init(Weapon weapon)
         {
             _weapon = weapon;
@@ -23,11 +25,16 @@ namespace WeaponSystem
             }
         }
 
+        private void Awake()
+        {
+            _bulletRb = GetComponent<Rigidbody>();
+        }
+
         private void OnCollisionEnter(Collision collision)
         {
             if (collision.collider.GetComponent<HealthSystem>())
             {
-                collision.collider.GetComponent<HealthSystem>().TakeDamage(new DamageInfo(_weapon.Damage, _weapon.PushBackForce));
+                collision.collider.GetComponent<HealthSystem>().TakeDamage(new DamageInfo(_weapon.Damage, _weapon.PushBackForce*_bulletRb.velocity.normalized));
                 DestroyBullet();
             }
         }

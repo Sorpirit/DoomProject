@@ -11,12 +11,13 @@ namespace WeaponSystem
         private RayGun _rayGun;
         private WeaponState _currentState;
         private BulletsUIComponent _bulletsUIComponent;
+        private FiringPartRotation _rotateFiringPart;
         private bool _canShootFireRate;
         private float _latsTimeShot;
         private bool _enoughBullets;
         private float _startReloadTime;
 
-        public WeaponSystemController(Weapon weapon, RayGun rayGun, BulletsUIComponent bulletsUIComponent)
+        public WeaponSystemController(Weapon weapon, RayGun rayGun, BulletsUIComponent bulletsUIComponent, FiringPartRotation rotateFiringPart)
         {
             _weapon = weapon;
             _weapon.Init();
@@ -26,6 +27,7 @@ namespace WeaponSystem
             _canShootFireRate = true;
             _enoughBullets = true;
             _currentState = WeaponState.ReadyToShoot;
+            _rotateFiringPart = rotateFiringPart;
         }
 
         public void StartShooting()
@@ -43,6 +45,7 @@ namespace WeaponSystem
         {
             _startReloadTime = Time.time;
             _currentState = WeaponState.Reloading;
+            _rotateFiringPart.ReloadAnimation(_weapon.ReloadTime);
         }
         
 
@@ -51,9 +54,10 @@ namespace WeaponSystem
             if (InputManager.Instance.GetShootInput())
             {
                 StartShooting();
+                _rotateFiringPart.RotationUpdate();
             }
-
-            if (InputManager.Instance.GetReloadInput())
+            
+            if (InputManager.Instance.GetReloadInput()&&_currentState!=WeaponState.Reloading)
             {
                 StartReloading();
             }
