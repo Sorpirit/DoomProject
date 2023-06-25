@@ -1,5 +1,6 @@
-﻿using System;
+using System;
 using EnemySystem.AI;
+using ObjectSystem;
 using JetBrains.Annotations;
 using StatsSystem;
 using UnityEngine;
@@ -13,6 +14,9 @@ namespace EnemySystem
         [SerializeField] private HealthSystem healthSystem;
         [SerializeField] private HuntAI huntAI;
         [SerializeField] private Collider bodyCollider;
+
+        [SerializeField] private HealthPill healthPill;
+
         [SerializeField] private EnemyAttacker enemyAttacker;
         [SerializeField] [CanBeNull] private EnemyHitResponder enemyHitResponder;
         [SerializeField] private EnemyAnimationController enemyAnimationController;
@@ -30,6 +34,7 @@ namespace EnemySystem
         {
             healthSystem.OnDead += HealthSystemOnDead;
             healthSystem.OnHit += HealthSystemOnHit;
+            healthSystem.OnDead += ()=> healthPill.Spawn(gameObject.transform);
             enemyAttacker.OnAttackStarted += EnemyAttackerOnAttackStarted;
             enemyAnimationController.OnAttackAnimationFinished += EnemyAnimationControllerOnAttackAnimationFinished;
         }
@@ -58,7 +63,7 @@ namespace EnemySystem
             IsHit = true;
         }
 
-        private void HealthSystemOnDead(object sender, EventArgs e)
+        private void HealthSystemOnDead()
         {
             // Destroy(healthSystem);
             // Destroy(huntAI);

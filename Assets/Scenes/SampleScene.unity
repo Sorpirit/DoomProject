@@ -3213,8 +3213,31 @@ PrefabInstance:
     - {fileID: 2182318775481619995, guid: cdcc9b9327e577e4ebaba270e005629a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7525225555655297283, guid: cdcc9b9327e577e4ebaba270e005629a,
+        type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7521257191330064171}
   m_SourcePrefab: {fileID: 100100000, guid: cdcc9b9327e577e4ebaba270e005629a, type: 3}
+--- !u!1 &7521257191330064170 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7525225555655297283, guid: cdcc9b9327e577e4ebaba270e005629a,
+    type: 3}
+  m_PrefabInstance: {fileID: 7521257191330064169}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7521257191330064171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7521257191330064170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40ef37c17d8c4e58b2261476ab972daf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  <SanityController>k__BackingField: {fileID: 1100369524}
 --- !u!1001 &7936155561541833398
 PrefabInstance:
   m_ObjectHideFlags: 0

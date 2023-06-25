@@ -69,7 +69,7 @@ namespace EnemySystem
         //     RestCounter();
         // }
 
-        private void OnEnemyKilled(object sender, EventArgs e)
+        private void OnEnemyKilled()
         {
             _killedEnemies++;
             if (_killedEnemies == _spawnTarget)

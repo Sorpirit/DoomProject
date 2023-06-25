@@ -140,6 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 5544322824894091928}
+  speed: 0
 --- !u!114 &2933346940107397378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,7 +156,11 @@ MonoBehaviour:
   healthSystem: {fileID: 8354802245412310276}
   huntAI: {fileID: 2399070263124365838}
   bodyCollider: {fileID: 3402981842748783554}
+  healthPill: {fileID: 7470936732774847957, guid: 9eb2ec7ef644c5a41824eef66e9ccb9f,
+    type: 3}
   enemyAttacker: {fileID: 6457464152217909641}
+  enemyHitResponder: {fileID: 0}
+  enemyAnimationController: {fileID: 0}
 --- !u!114 &6457464152217909641
 MonoBehaviour:
   m_ObjectHideFlags: 0
