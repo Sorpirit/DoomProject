@@ -5,8 +5,6 @@ using EnemySystem;
 using StatsSystem;
 using UI;
 using UnityEngine;
-using UnityEngine.UIElements;
-using Cursor = UnityEngine.Cursor;
 
 #endregion
 
@@ -23,6 +21,7 @@ namespace Core
         [SerializeField] private SanityUIComponent sanityUI;
         [SerializeField] private CursorUIComponent cursor;
         [SerializeField] private GameObject deathScreen;
+        [SerializeField] private GameObject winScreen;
 
         [Header("Level systems")]
         [Space(10)]
@@ -80,8 +79,16 @@ namespace Core
             enemySpawnerController.Init(enemySpawner);
             levelSystem.OnLevelStarted += enemySpawnerController.LevelStarted;
             enemySpawnerController.OnAllEnemiesKilled += () => levelSystem.GoToNextLevel();
+            levelSystem.OnGameEnd += () => winScreen.SetActive(true);
+            levelSystem.OnGameEnd += () => cursor.Unlock();
             
             levelSystem.StartFirstLevel();
+        }
+
+        public void Quit()
+        {
+            UnityEngine.Debug.Log("Quit!");
+            Application.Quit();
         }
     }
 }
