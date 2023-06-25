@@ -2,6 +2,7 @@
 using System.Linq;
 using Core;
 using UnityEngine;
+using UnityEngine.AI;
 using Random = UnityEngine.Random;
 
 namespace EnemySystem
@@ -29,6 +30,8 @@ namespace EnemySystem
                 SpawnEnemy();
         }
 
+        private const float MAX_NAV_MESH_SPAWNING_DISTANCE_OFFSET = 100f;
+
         public Enemy SpawnEnemy()
         {
             Enemy enemy = null;
@@ -38,8 +41,13 @@ namespace EnemySystem
             {
                 Vector3 point = GenerateRandomPointInCircle(Player.Instance.transform.position, minSpawnRadius,
                     maxSpawnRadius);
-                point.y = 0.2f;
-                spawned = TrySpawnInPoint(point, nextEnemy.collider, nextEnemy.enemyPrefab, out enemy);
+                
+                if (NavMesh.SamplePosition(point, out NavMeshHit hit, MAX_NAV_MESH_SPAWNING_DISTANCE_OFFSET,
+                        -1))
+                {
+                    point = hit.position;
+                    spawned = TrySpawnInPoint(point, nextEnemy.collider, nextEnemy.enemyPrefab, out enemy);
+                }
             }
 
             OnEnemySpawned?.Invoke(this, new SpawnerEventArgs() { spawnPoint = enemy.transform.position });
@@ -74,8 +82,10 @@ namespace EnemySystem
             Vector3 localPoint1 = capsuleCollider.center + direction * offset;
 
             //Transforms
-            var point0 = transform.TransformPoint(localPoint0);
-            var point1 = transform.TransformPoint(localPoint1);
+            // var point0 = Player.Instance.transform.TransformPoint(localPoint0);
+            // var point1 = Player.Instance.transform.TransformPoint(localPoint1);
+            var point0 = localPoint0 + point;
+            var point1 = localPoint1 + point;
             var r = transform.TransformVector(capsuleCollider.radius, capsuleCollider.radius, capsuleCollider.radius);
             var radius = Enumerable.Range(0, 3).Select(xyz => xyz == capsuleCollider.direction ? 0 : r[xyz])
                 .Select(Mathf.Abs).Max();

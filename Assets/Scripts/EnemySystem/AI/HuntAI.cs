@@ -22,10 +22,10 @@ namespace EnemySystem.AI
             agent.speed = speed;
         }
 
+
         private void Update()
         {
-                agent.SetDestination(_target.position);
-
+            agent.SetDestination(_target.position);
         }
 
         public void StopAgent()
