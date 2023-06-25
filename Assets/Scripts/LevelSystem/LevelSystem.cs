@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace LevelSystem
 {
@@ -30,6 +31,11 @@ namespace LevelSystem
             _currentLevelIndex++;
             OnLevelStarted?.Invoke(_currentLevelIndex, levelInfos[_currentLevelIndex]);
             return true;
+        }
+
+        public void RestartLevel()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }
