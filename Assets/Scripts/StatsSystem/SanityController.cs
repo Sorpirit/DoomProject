@@ -23,7 +23,6 @@ namespace StatsSystem
         public float[] MaxSanityPoints => maxSanityPoints;
 
         public float SanityPoints => _sanityPoints;
-        public event Action OnDead;
 
         private void Start()
         {
@@ -52,7 +51,7 @@ namespace StatsSystem
             _sanityPoints -= value;
             if (_sanityPoints <= 0)
             {
-                OnDead?.Invoke();
+                Debug.Log("Game Over");
                 return;
             }
 
@@ -60,7 +59,7 @@ namespace StatsSystem
             {
                 _currentSanityLevel++;
                 _currentMaxSanityPoints = maxSanityPoints[_currentSanityLevel];
-                _nextLevelMaxSanityPoints = _currentSanityLevel + 1 < maxSanityPoints.Length ? maxSanityPoints[_currentSanityLevel + 1] : 0;
+                _nextLevelMaxSanityPoints = maxSanityPoints.Length >= 2 ? maxSanityPoints[_currentSanityLevel + 1] : 0;
                 OnMaxLevelChanged?.Invoke();
             }
         }

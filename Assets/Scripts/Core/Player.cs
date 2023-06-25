@@ -1,5 +1,4 @@
 ﻿using System;
-using StatsSystem;
 using UI;
 using UnityEngine;
 using WeaponSystem;

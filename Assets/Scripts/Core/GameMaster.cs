@@ -19,9 +19,6 @@ namespace Core
         [Header("UI systems")]
         [Space(10)]
         [SerializeField] private SanityUIComponent sanityUI;
-        [SerializeField] private CursorUIComponent cursor;
-        [SerializeField] private GameObject deathScreen;
-        [SerializeField] private GameObject winScreen;
 
         [Header("Level systems")]
         [Space(10)]
@@ -58,12 +55,10 @@ namespace Core
 
         private void Start()
         {
-            cursor.Lock();
+            Cursor.lockState = CursorLockMode.Locked;
             
             sanityUI.Init(sanityController);
-            sanityController.OnDead += () => deathScreen.SetActive(true);
-            sanityController.OnDead += () => cursor.Unlock();
-
+            
             InitGameLoop();
         }
 
@@ -79,16 +74,8 @@ namespace Core
             enemySpawnerController.Init(enemySpawner);
             levelSystem.OnLevelStarted += enemySpawnerController.LevelStarted;
             enemySpawnerController.OnAllEnemiesKilled += () => levelSystem.GoToNextLevel();
-            levelSystem.OnGameEnd += () => winScreen.SetActive(true);
-            levelSystem.OnGameEnd += () => cursor.Unlock();
             
             levelSystem.StartFirstLevel();
-        }
-
-        public void Quit()
-        {
-            UnityEngine.Debug.Log("Quit!");
-            Application.Quit();
         }
     }
 }
