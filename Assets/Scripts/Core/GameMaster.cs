@@ -84,11 +84,5 @@ namespace Core
             
             levelSystem.StartFirstLevel();
         }
-
-        public void Quit()
-        {
-            UnityEngine.Debug.Log("Quit!");
-            Application.Quit();
-        }
     }
 }
