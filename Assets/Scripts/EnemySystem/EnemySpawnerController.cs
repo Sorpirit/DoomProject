@@ -1,8 +1,10 @@
 using System;
 using System.Collections.Generic;
+using Core;
+using LevelSystem;
 using UnityEngine;
 
-namespace Core
+namespace EnemySystem
 {
     public class EnemySpawnerController : MonoBehaviour
     {

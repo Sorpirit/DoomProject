@@ -1,4 +1,4 @@
-﻿namespace Core
+﻿namespace EnemySystem
 {
     public interface IEnemyController
     {

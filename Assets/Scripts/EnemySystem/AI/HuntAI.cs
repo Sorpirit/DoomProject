@@ -1,11 +1,12 @@
 #region
 
+using Core;
 using UnityEngine;
 using UnityEngine.AI;
 
 #endregion
 
-namespace Core
+namespace EnemySystem.AI
 {
     public class HuntAI : MonoBehaviour
     {

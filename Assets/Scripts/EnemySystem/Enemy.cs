@@ -1,11 +1,10 @@
-﻿#region
-
-using System;
+﻿using System;
+using Core;
+using EnemySystem.AI;
+using StatsSystem;
 using UnityEngine;
 
-#endregion
-
-namespace Core
+namespace EnemySystem
 {
     public class Enemy : MonoBehaviour, IEnemyController
     {

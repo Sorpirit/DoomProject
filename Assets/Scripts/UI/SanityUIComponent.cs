@@ -1,10 +1,6 @@
-#region
-
-using Core;
+using StatsSystem;
 using UnityEngine;
 using UnityEngine.UI;
-
-#endregion
 
 namespace UI
 {

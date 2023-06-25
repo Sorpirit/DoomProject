@@ -2,7 +2,7 @@ using UnityEngine;
 
 namespace Core
 {
-    public class PlayerController : MonoBehaviour
+    public class CharacterMovementController : MonoBehaviour
     {
         [SerializeField] private float maxSpeed = 10.0f;
         [SerializeField] private float acceleration = 10.0f;
