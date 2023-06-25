@@ -15,6 +15,7 @@ namespace Core
 
         private State _currentState;
         public Collider BodyCollider => bodyCollider;
+        public HealthSystem HealthSystem => healthSystem;
 
         public bool IsHit { get; private set; }
         public bool IsDead => _currentState == State.Dead;
