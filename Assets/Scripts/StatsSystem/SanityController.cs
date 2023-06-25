@@ -12,6 +12,7 @@ namespace StatsSystem
     {
         [SerializeField, Tooltip("Should be in order from biggest to smallest")] private float[] maxSanityPoints;
         [SerializeField] private float degradationRate = 0.1f;
+        public static SanityController Instance { get; private set; }
         private float _currentMaxSanityPoints;
 
         private int _currentSanityLevel;
@@ -23,6 +24,11 @@ namespace StatsSystem
         public float[] MaxSanityPoints => maxSanityPoints;
 
         public float SanityPoints => _sanityPoints;
+
+        private void Awake()
+        {
+            Instance = this;
+        }
 
         private void Start()
         {

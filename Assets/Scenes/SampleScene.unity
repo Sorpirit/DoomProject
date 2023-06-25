@@ -1523,6 +1523,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f04c0b88da84d24e884ecfb6760016a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1100369526 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2260578970592166916, guid: cdcc9b9327e577e4ebaba270e005629a,
+    type: 3}
+  m_PrefabInstance: {fileID: 7521257191330064169}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8a0569a7ea024455b7a2d44887a54a99, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1197611287 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4387438620459558, guid: 7ab16310faa910d40b16db3d54919077,
@@ -2659,6 +2671,16 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2075658259}
     m_Modifications:
+    - target: {fileID: 1366865353204676870, guid: 1f9607a3eff705045800ef10e790655d,
+        type: 3}
+      propertyPath: spawnVariants.Array.data[0].value
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1366865353204676870, guid: 1f9607a3eff705045800ef10e790655d,
+        type: 3}
+      propertyPath: spawnVariants.Array.data[1].value
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 4259521208988689615, guid: 1f9607a3eff705045800ef10e790655d,
         type: 3}
       propertyPath: m_Name
@@ -2739,6 +2761,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1472769505115396099, guid: cdcc9b9327e577e4ebaba270e005629a,
         type: 3}
+      propertyPath: hurtResponder
+      value: 
+      objectReference: {fileID: 1100369526}
+    - target: {fileID: 1472769505115396099, guid: cdcc9b9327e577e4ebaba270e005629a,
+        type: 3}
       propertyPath: bulletsUIComponent
       value: 
       objectReference: {fileID: 2071952749}
@@ -2796,6 +2823,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7619867903381881690, guid: cdcc9b9327e577e4ebaba270e005629a,
+        type: 3}
+      propertyPath: <Damage>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7619867903381881690, guid: cdcc9b9327e577e4ebaba270e005629a,
+        type: 3}
+      propertyPath: <FireRate>k__BackingField
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7619867903381881690, guid: cdcc9b9327e577e4ebaba270e005629a,
+        type: 3}
+      propertyPath: <BulletLifeTime>k__BackingField
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7619867903381881690, guid: cdcc9b9327e577e4ebaba270e005629a,
+        type: 3}
+      propertyPath: <MaxAmountOfBullets>k__BackingField
+      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
