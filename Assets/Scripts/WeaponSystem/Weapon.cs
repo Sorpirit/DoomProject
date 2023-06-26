@@ -1,4 +1,5 @@
 ﻿using System;
+using UnityEngine.Audio;
 using UnityEngine;
 
 namespace WeaponSystem
@@ -18,7 +19,6 @@ namespace WeaponSystem
         [field: SerializeField] public float Damage {get; private set; }
 
 
-
         public void Init()
         {
             CurrentAmountOfBullets = MaxAmountOfBullets;
@@ -26,9 +26,7 @@ namespace WeaponSystem
 
         public void Shoot()
         {
-            
             CurrentAmountOfBullets -= 1;
-            
         }
 
         public void Reload()

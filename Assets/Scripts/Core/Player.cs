@@ -15,8 +15,9 @@ namespace Core
         [Header("Weapon systems")]
         [SerializeField] private Weapon weapon;
         [SerializeField] private RayGun rayGun;
-        [SerializeField] private FiringPartRotation _firingPartRotation;
-        
+        [SerializeField] private FiringPartRotation firingPartRotation;
+        [SerializeField] private WeaponSoundController weaponSoundController;
+         
         [Space(10)]
         [Header("UI systems")]
         [SerializeField] private BulletsUIComponent bulletsUIComponent;
@@ -31,7 +32,7 @@ namespace Core
         
         private void Start()
         {
-            _weaponSystemController = new WeaponSystemController(weapon, rayGun, bulletsUIComponent, _firingPartRotation);
+            _weaponSystemController = new WeaponSystemController(weapon, rayGun, bulletsUIComponent, firingPartRotation, weaponSoundController);
             hurtResponder.OnDamageReceived += HurtResponderOnDamageReceived;
         }
 

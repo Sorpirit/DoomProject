@@ -13,12 +13,13 @@ namespace Core
         [CanBeNull] 
         private static InputManager _instance;
 
-        private readonly PlayerInput _playerInput;
+        public readonly PlayerInput _playerInput;
 
         private InputManager()
         {
             _playerInput = new PlayerInput();
             _playerInput.Enable();
+            
         }
 
         public static InputManager Instance => _instance ??= new InputManager();
@@ -35,10 +36,9 @@ namespace Core
 
         public bool GetShootInput()
         {
-            
             return _playerInput.Player.Shoot.IsPressed();
         }
-
+        
         public bool GetReloadInput()
         {
             return _playerInput.Player.Reload.triggered;

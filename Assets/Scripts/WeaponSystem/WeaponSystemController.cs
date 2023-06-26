@@ -12,13 +12,15 @@ namespace WeaponSystem
         private WeaponState _currentState;
         private BulletsUIComponent _bulletsUIComponent;
         private FiringPartRotation _rotateFiringPart;
+        private WeaponSoundController _soundController;
         private bool _canShootFireRate;
         private float _latsTimeShot;
         private bool _enoughBullets;
         private float _startReloadTime;
 
-        public WeaponSystemController(Weapon weapon, RayGun rayGun, BulletsUIComponent bulletsUIComponent, FiringPartRotation rotateFiringPart)
+        public WeaponSystemController(Weapon weapon, RayGun rayGun, BulletsUIComponent bulletsUIComponent, FiringPartRotation rotateFiringPart, WeaponSoundController soundController)
         {
+            _soundController = soundController;
             _weapon = weapon;
             _weapon.Init();
             _rayGun = rayGun;
@@ -32,6 +34,7 @@ namespace WeaponSystem
 
         public void StartShooting()
         {
+            _soundController.PlaySound(_enoughBullets);
             if (_weapon.CurrentAmountOfBullets!=0 && _canShootFireRate && _currentState == WeaponState.ReadyToShoot && _enoughBullets)
             {
                 _latsTimeShot = Time.time;
