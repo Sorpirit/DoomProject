@@ -53,7 +53,7 @@ namespace EnemySystem
             {
                 foreach (var enemy in _enemies)
                 {
-                    enemy.HealthSystem.TakeDamage(new DamageInfo(1000, 0));
+                    enemy.HealthSystem.TakeDamage(new DamageInfo(1000, Vector3.zero));
                 }
             }
         }

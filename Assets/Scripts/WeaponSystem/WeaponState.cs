@@ -3,6 +3,7 @@
     public enum WeaponState
     {
         Reloading = 0,
-        ReadyToShoot = 1
+        Shooting=1,
+        ReadyToShoot = 2
     }
 }
