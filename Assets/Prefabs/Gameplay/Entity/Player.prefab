@@ -38,7 +38,7 @@ Transform:
   - {fileID: 5178112503881997962}
   - {fileID: 2748404946619400380}
   m_Father: {fileID: 0}
-  m_RootOrder: 0
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &3392517565665919205
 Rigidbody:
@@ -82,7 +82,7 @@ MonoBehaviour:
   weapon: {fileID: 7619867903381881690}
   rayGun: {fileID: 1789965109360057606}
   bulletsUIComponent: {fileID: 0}
-  hurtResponder: {fileID: 0}
+  hurtResponder: {fileID: 2260578970592166916}
 --- !u!114 &3785583369319928180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -406,16 +406,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebf155ff679649a5ab02796fb483c64d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <FireRate>k__BackingField: 2
+  <FireRate>k__BackingField: 0.1
   <ReloadTime>k__BackingField: 3
-  <MaxAmountOfBullets>k__BackingField: 5
+  <MaxAmountOfBullets>k__BackingField: 500
   <PushBackForce>k__BackingField: 2
   <CurrentAmountOfBullets>k__BackingField: 5
   <Spread>k__BackingField: 0.05
   <MaxDistance>k__BackingField: 90
   <ShootForce>k__BackingField: 300
-  <BulletLifeTime>k__BackingField: 5
-  <Damage>k__BackingField: 10
+  <BulletLifeTime>k__BackingField: 2
+  <Damage>k__BackingField: 1
 --- !u!1 &3963377686732815099
 GameObject:
   m_ObjectHideFlags: 0
@@ -490,6 +490,7 @@ GameObject:
   - component: {fileID: 7849890845345523182}
   - component: {fileID: 1356216292776520025}
   - component: {fileID: 1794545782936273282}
+  - component: {fileID: 9101824676334106412}
   m_Layer: 6
   m_Name: Physics
   m_TagString: Untagged
@@ -549,6 +550,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   active: 1
   owner: {fileID: 937611564398382988}
+--- !u!114 &9101824676334106412
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7525225555655297283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 40ef37c17d8c4e58b2261476ab972daf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7623989377936007695
 GameObject:
   m_ObjectHideFlags: 0
