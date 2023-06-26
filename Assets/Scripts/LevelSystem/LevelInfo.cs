@@ -7,7 +7,9 @@ namespace LevelSystem
     public struct LevelInfo
     {
         [SerializeField] private int enemyCount;
-
+        [SerializeField] private GameObject levelGameObject;
         public int EnemyCount => enemyCount;
+
+        public GameObject LevelGameObject => levelGameObject;
     }
 }

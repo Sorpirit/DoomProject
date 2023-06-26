@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: edd0c92f44b74926b9fe38f70893527b, type: 3}
   m_Name: EnemySpawnerData
   m_EditorClassIdentifier: 
-  spawnDelay: 60
+  spawnDelay: 1
   spawnRate: 2
   enemiesCount: 5

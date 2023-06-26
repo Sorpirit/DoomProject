@@ -32,8 +32,20 @@ namespace LevelSystem
             }
             
             _currentLevelIndex++;
+            
+            levelInfos[_currentLevelIndex - 1].LevelGameObject.SetActive(false);
+            levelInfos[_currentLevelIndex].LevelGameObject.SetActive(true);
+            
             OnLevelStarted?.Invoke(_currentLevelIndex, levelInfos[_currentLevelIndex]);
             return true;
+        }
+
+        private void Update()
+        {
+            if (Input.GetKeyDown(KeyCode.U))
+            {
+                GoToNextLevel();
+            }
         }
 
         public void RestartLevel()

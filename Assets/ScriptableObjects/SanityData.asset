@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3f04c0b88da84d24e884ecfb6760016a, type: 3}
   m_Name: SanityData
   m_EditorClassIdentifier: 
-  startingDegradationRate: 0
+  startingDegradationRate: 4
   maxSanity: 100
   stagesCount: 4
