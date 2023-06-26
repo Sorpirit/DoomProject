@@ -3,15 +3,13 @@ using UnityEngine;
 
 namespace Core
 {
-    public class WinScreenUI  : MonoBehaviour
+    public class WinScreenUI : MonoBehaviour
     {
         private void Start()
         {
-            if (GameManager.Instance is null)
-            {
-                Debug.LogError("GameManager should be on the scene");
-            }
-            GameManager.Instance!.OnLevelFinished += GameManagerOnLevelFinished;
+            Debug.Assert(GameManager.Instance != null, "GameManager should be on the scene");
+            
+            GameManager.Instance.OnLevelFinished += GameManagerOnLevelFinished;
             Hide();
         }
 

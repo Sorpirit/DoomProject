@@ -24,12 +24,12 @@ namespace UI
         {
             int currentSanityStage = SanityController.Instance.CurrentSanityStage;
             int stagesCount = SanityController.Instance.SanityDataSO.stagesCount;
-            for (int i = currentSanityStage; i < stagesCount; i++)
+            for (int i = Mathf.Clamp(currentSanityStage,0, _sliders.Length); i < stagesCount; i++)
             {
                 _sliders[i].SetToFilled();
             }
 
-            _currentSanityUIIndex = Mathf.Clamp(currentSanityStage-1,0, _sliders.Length-1);
+            _currentSanityUIIndex = Mathf.Clamp(currentSanityStage-1,0, _sliders.Length -1 );
         }
 
         private void InstantiateAllSliders()
