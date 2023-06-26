@@ -81,6 +81,7 @@ GameObject:
   - component: {fileID: 5544322824894091928}
   - component: {fileID: 2399070263124365838}
   - component: {fileID: 2933346940107397378}
+  - component: {fileID: 6457464152217909641}
   m_Layer: 7
   m_Name: _BaseEnemy
   m_TagString: Untagged
@@ -139,6 +140,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   agent: {fileID: 5544322824894091928}
+  speed: 0
 --- !u!114 &2933346940107397378
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -154,3 +156,21 @@ MonoBehaviour:
   healthSystem: {fileID: 8354802245412310276}
   huntAI: {fileID: 2399070263124365838}
   bodyCollider: {fileID: 3402981842748783554}
+  healthPill: {fileID: 7470936732774847957, guid: 9eb2ec7ef644c5a41824eef66e9ccb9f,
+    type: 3}
+  enemyAttacker: {fileID: 6457464152217909641}
+  enemyHitResponder: {fileID: 0}
+  enemyAnimationController: {fileID: 0}
+--- !u!114 &6457464152217909641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6576432267970147704}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 649076d3b6914954a4a68b9cd2cd9720, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  attackRange: 10

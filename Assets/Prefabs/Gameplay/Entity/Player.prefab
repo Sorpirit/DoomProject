@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1472769505115396099}
   - component: {fileID: 3785583369319928180}
   - component: {fileID: 1789965109360057606}
-  - component: {fileID: 2182318775481619995}
+  - component: {fileID: 2260578970592166916}
   m_Layer: 6
   m_Name: Player
   m_TagString: Untagged
@@ -38,7 +38,7 @@ Transform:
   - {fileID: 5178112503881997962}
   - {fileID: 2748404946619400380}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!54 &3392517565665919205
 Rigidbody:
@@ -82,6 +82,7 @@ MonoBehaviour:
   weapon: {fileID: 7619867903381881690}
   rayGun: {fileID: 1789965109360057606}
   bulletsUIComponent: {fileID: 0}
+  hurtResponder: {fileID: 0}
 --- !u!114 &3785583369319928180
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,7 +129,7 @@ MonoBehaviour:
   bullet: {fileID: 1556664061214972299, guid: 944da66bbb1476d4582a3b2d84ede53f, type: 3}
   rayVisualizer: {fileID: 6675219714199123667}
   weapon: {fileID: 7619867903381881690}
---- !u!114 &2182318775481619995
+--- !u!114 &2260578970592166916
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,15 +138,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 937611564398382988}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3f04c0b88da84d24e884ecfb6760016a, type: 3}
+  m_Script: {fileID: 11500000, guid: 8a0569a7ea024455b7a2d44887a54a99, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxSanityPoints:
-  - 100
-  - 80
-  - 50
-  - 30
-  degradationRate: 0.1
 --- !u!1 &1374887237035723795
 GameObject:
   m_ObjectHideFlags: 0
@@ -494,6 +489,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7849890845345523182}
   - component: {fileID: 1356216292776520025}
+  - component: {fileID: 1794545782936273282}
   m_Layer: 6
   m_Name: Physics
   m_TagString: Untagged
@@ -539,6 +535,20 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!114 &1794545782936273282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7525225555655297283}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4503db3d77ce42fcb054c9dd16525372, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  active: 1
+  owner: {fileID: 937611564398382988}
 --- !u!1 &7623989377936007695
 GameObject:
   m_ObjectHideFlags: 0
