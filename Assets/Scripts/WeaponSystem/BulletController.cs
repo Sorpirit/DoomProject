@@ -7,6 +7,8 @@ namespace WeaponSystem
 {
     public class BulletController: MonoBehaviour
     {
+        [SerializeField] private ParticleSystem explosion;
+        [SerializeField] private GameObject bulletPrefab; 
         private Weapon _weapon;
         private float _maxAliveTime;
         private Rigidbody _bulletRb;
@@ -32,11 +34,13 @@ namespace WeaponSystem
 
         private void OnCollisionEnter(Collision collision)
         {
+            explosion.Play();
             if (collision.collider.GetComponent<HealthSystem>())
             {
                 collision.collider.GetComponent<HealthSystem>().TakeDamage(new DamageInfo(_weapon.Damage, _weapon.PushBackForce*_bulletRb.velocity.normalized));
-                DestroyBullet();
             }
+            bulletPrefab.SetActive(false);
+            GetComponent<Rigidbody>().isKinematic = true;
         }
 
         private void DestroyBullet()

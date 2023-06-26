@@ -38,23 +38,6 @@ namespace WeaponSystem
             muzzleFlash.Play();
             var ray = new Ray(shootingPoint.position, direction);
             bool hasHit = Physics.Raycast(ray, out var hit, weapon.MaxDistance, shootingMask);
-            //ShotDraw(ray, hasHit, hit, barrelPoint.position);
-        }
-
-        private void ShotDraw(Ray ray, bool hasHit, RaycastHit hitInfo, Vector3 barrelPointPosition)
-        {
-            rayVisualizer.enabled = true;
-            rayVisualizer.SetPosition(0, barrelPointPosition);
-            if(hasHit)
-                rayVisualizer.SetPosition(1, hitInfo.point);
-            else
-                rayVisualizer.SetPosition(1, ray.origin + ray.direction * weapon.MaxDistance);
-        }
-
-        private void OnDrawGizmos()
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawRay(shootingPoint.position, shootingPoint.forward * weapon.MaxDistance);
         }
     }
 }

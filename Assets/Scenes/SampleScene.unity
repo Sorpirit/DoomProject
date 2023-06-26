@@ -2742,6 +2742,27 @@ PrefabInstance:
       propertyPath: bulletsUIComponent
       value: 
       objectReference: {fileID: 2071952749}
+    - target: {fileID: 1789965109360057606, guid: cdcc9b9327e577e4ebaba270e005629a,
+        type: 3}
+      propertyPath: bullet
+      value: 
+      objectReference: {fileID: 1750201243477428575, guid: c060807f6c805ea45ba2a626391dcaf7,
+        type: 3}
+    - target: {fileID: 2641198586719698187, guid: cdcc9b9327e577e4ebaba270e005629a,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0.376
+      objectReference: {fileID: 0}
+    - target: {fileID: 2641198586719698187, guid: cdcc9b9327e577e4ebaba270e005629a,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.558
+      objectReference: {fileID: 0}
+    - target: {fileID: 2641198586719698187, guid: cdcc9b9327e577e4ebaba270e005629a,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0.989
+      objectReference: {fileID: 0}
     - target: {fileID: 4984471754802883454, guid: cdcc9b9327e577e4ebaba270e005629a,
         type: 3}
       propertyPath: m_RootOrder
@@ -2797,22 +2818,28 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8272331164800766223, guid: cdcc9b9327e577e4ebaba270e005629a,
+    - target: {fileID: 6030891661400054071, guid: cdcc9b9327e577e4ebaba270e005629a,
         type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -0.471
+      propertyPath: looping
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8272331164800766223, guid: cdcc9b9327e577e4ebaba270e005629a,
+    - target: {fileID: 6030891661400054071, guid: cdcc9b9327e577e4ebaba270e005629a,
         type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0.324
+      propertyPath: playOnAwake
+      value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 8272331164800766223, guid: cdcc9b9327e577e4ebaba270e005629a,
+    - target: {fileID: 7619867903381881690, guid: cdcc9b9327e577e4ebaba270e005629a,
         type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0.018
+      propertyPath: <ShootForce>k__BackingField
+      value: 250
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    - target: {fileID: 7619867903381881690, guid: cdcc9b9327e577e4ebaba270e005629a,
+        type: 3}
+      propertyPath: <BulletLifeTime>k__BackingField
+      value: 1
+      objectReference: {fileID: 0}
+    m_RemovedComponents:
+    - {fileID: 3570159168281756220, guid: cdcc9b9327e577e4ebaba270e005629a, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []

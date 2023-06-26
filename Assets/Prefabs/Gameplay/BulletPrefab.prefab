@@ -14,9 +14,9 @@ GameObject:
   - component: {fileID: 7573231562599417527}
   - component: {fileID: 566607046040458343}
   - component: {fileID: -1749001554450250654}
-  - component: {fileID: 1145571288546750698}
+  - component: {fileID: 3962268351000397473}
   m_Layer: 0
-  m_Name: Bullet
+  m_Name: BulletPrefab
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -120,6 +120,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2659ffec852242e4a5e7d22e0d2f1c2a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  explosion: {fileID: 0}
 --- !u!54 &-1749001554450250654
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -147,7 +148,7 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 1
---- !u!96 &1145571288546750698
+--- !u!96 &3962268351000397473
 TrailRenderer:
   serializedVersion: 3
   m_ObjectHideFlags: 0
@@ -189,7 +190,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.3
+  m_Time: 0.2
   m_PreviewTimeScale: 1
   m_Parameters:
     serializedVersion: 3

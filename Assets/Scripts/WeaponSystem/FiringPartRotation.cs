@@ -9,12 +9,7 @@ namespace WeaponSystem
     {
         [SerializeField] private float rotationSpeed;
         [SerializeField] private Transform rotatingPart;
-
-
-        private void Start()
-        {
-            ;
-        }
+        
 
         public void RotationUpdate()
         {
