@@ -1,4 +1,5 @@
 ﻿using System;
+using StatsSystem;
 using UnityEngine;
 
 namespace Core
@@ -23,6 +24,12 @@ namespace Core
         private void Start()
         {
             OnLevelStarted?.Invoke(this, EventArgs.Empty);
+            SanityController.Instance.OnZeroSanity += SanityControllerOnZeroSanity;
+        }
+
+        private void SanityControllerOnZeroSanity(object sender, EventArgs e)
+        {
+            OnLevelLoose?.Invoke(this, EventArgs.Empty);
         }
     }
 }

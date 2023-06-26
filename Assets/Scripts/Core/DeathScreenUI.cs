@@ -1,10 +1,13 @@
 ﻿using System;
+using EnemySystem.AI;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Core
 {
     public class DeathScreenUI  : MonoBehaviour
     {
+        [SerializeField] private Button restartButton;
         private void Start()
         {
             if (GameManager.Instance is null)
@@ -12,6 +15,10 @@ namespace Core
                 Debug.LogError("GameManager should be on the scene");
             }
             GameManager.Instance!.OnLevelLoose += GameManagerOnLevelFinished;
+            restartButton.onClick.AddListener(()=>
+            {
+                SceneLoader.ReloadCurrentScene();
+            });
             Hide();
         }
 

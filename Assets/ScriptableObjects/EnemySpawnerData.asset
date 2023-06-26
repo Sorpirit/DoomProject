@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: EnemySpawnerData
   m_EditorClassIdentifier: 
   spawnDelay: 1
-  spawnRate: 0.1
-  enemiesCount: 100
+  spawnRate: 0.5
+  enemiesCount: 15

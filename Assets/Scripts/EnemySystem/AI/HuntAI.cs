@@ -1,6 +1,7 @@
 #region
 
 using Core;
+using JetBrains.Annotations;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -12,20 +13,23 @@ namespace EnemySystem.AI
     {
         [SerializeField] private NavMeshAgent agent;
         [SerializeField] private float speed;
+        [SerializeField] [CanBeNull] private Transform followTransform;
         private bool _stopped;
-
-        private Transform _target;
-
+        
         private void Start()
         {
-            _target = Player.Instance.transform;
+            if (followTransform == null) 
+            {
+                followTransform = Player.Instance.transform;
+            }
+
             agent.speed = speed;
         }
 
 
         private void Update()
         {
-            agent.SetDestination(_target.position);
+            agent.SetDestination(followTransform!.position);
         }
 
         public void StopAgent()

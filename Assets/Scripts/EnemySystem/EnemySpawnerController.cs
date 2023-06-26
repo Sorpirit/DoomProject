@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 using Core;
-using LevelSystem;
+using LevelSystems;
 using UnityEngine;
 
 namespace EnemySystem
@@ -11,6 +11,7 @@ namespace EnemySystem
         [SerializeField] private EnemySpawnerDataSO enemySpawnerDataSO;
         [SerializeField] private Spawner spawner;
 
+        public static EnemySpawnerController Instance { get; private set; }
         public event Action OnAllEnemiesKilled;
 
         // private Spawner _spawner;
@@ -22,16 +23,28 @@ namespace EnemySystem
         private int _killedEnemies;
         private float _spawnTimer;
 
+        private void Awake()
+        {
+            Instance = this;
+        }
+
         private void Start()
         {
             _spawnTimer = enemySpawnerDataSO.spawnDelay;
-            GameManager.Instance.OnLevelStarted += GameMasterOnLevelStarted;
+            // GameManager.Instance.OnLevelStarted += GameMasterOnLevelStarted;
+            LevelSystem.Instance.OnNextLevelStarted += LevelSystemOnNextLevelStarted;
+        }
+
+        private void LevelSystemOnNextLevelStarted(LevelInfo obj)
+        {
+            _spawnTarget = obj.EnemyCount;
+            ResetCounter();
         }
 
         private void GameMasterOnLevelStarted(object sender, EventArgs e)
         {
             _spawnTarget = enemySpawnerDataSO.enemiesCount;
-            RestCounter();
+            ResetCounter();
         }
 
         private void Update()
@@ -74,13 +87,13 @@ namespace EnemySystem
             _killedEnemies++;
             if (_killedEnemies == _spawnTarget)
             {
-                GameManager.Instance.AllEnemiesFinished();
+                // GameManager.Instance.AllEnemiesFinished();
 
                 OnAllEnemiesKilled?.Invoke();
             }
         }
 
-        private void RestCounter()
+        private void ResetCounter()
         {
             _spawnedEnemies = 0;
             _killedEnemies = 0;

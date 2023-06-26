@@ -34,6 +34,8 @@ namespace StatsSystem
         private void Start()
         {
             InitValues();
+            DecreaseSanity(sanityDataSO.maxSanity - sanityDataSO.startSanity);
+            OnSanityStageChanged?.Invoke(this, EventArgs.Empty);
         }
 
         private void Update()

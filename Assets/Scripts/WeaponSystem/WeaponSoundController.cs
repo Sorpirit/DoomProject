@@ -1,6 +1,7 @@
 ﻿using System;
 using Core;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 namespace WeaponSystem
 {
@@ -11,7 +12,13 @@ namespace WeaponSystem
 
         private void Start()
         {
-            InputManager.Instance._playerInput.Player.Shoot.canceled += _ => StopShootSounds();
+            // InputManager.Instance._playerInput.Player.Shoot.canceled += _ => StopShootSounds();
+            InputManager.Instance._playerInput.Player.Shoot.canceled += ShootOnCanceled;
+        }
+
+        private void ShootOnCanceled(InputAction.CallbackContext obj)
+        {
+            StopShootSounds();
         }
 
         public void PlaySound(bool hasAmmo)
@@ -33,6 +40,11 @@ namespace WeaponSystem
         {
             bulletFireSound.Stop();
             blankFireSound.Stop();
+        }
+
+        private void OnDestroy()
+        {
+            InputManager.Instance._playerInput.Player.Shoot.canceled -= ShootOnCanceled;
         }
     }
 }
