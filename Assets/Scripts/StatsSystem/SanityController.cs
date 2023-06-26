@@ -10,10 +10,17 @@ namespace StatsSystem
 
         private int _currentSanityStage;
         private float _currentSanity;
-        
+
+        public SanityDataSO SanityDataSO => sanityDataSO;
         public int CurrentSanityStage => _currentSanityStage;
         public float CurrentSanity => _currentSanity;
-        public float CurrentSanityNormalized => _currentSanity / sanityDataSO.maxSanity;
+        public float CurrentStageSanityNormalized
+        {
+            get
+            {
+                return (_currentSanity - _currentSanityStage * _sanityPerStage) / _sanityPerStage;
+            }
+        }
 
         public static SanityController Instance;
         public event EventHandler OnSanityStageChanged;
@@ -37,7 +44,7 @@ namespace StatsSystem
         private void InitValues()
         {
             _sanityPerStage = sanityDataSO.maxSanity / sanityDataSO.stagesCount;
-            _currentSanityStage = 0;
+            _currentSanityStage = sanityDataSO.stagesCount;
             _currentSanity = sanityDataSO.maxSanity;
         }
 
@@ -51,6 +58,7 @@ namespace StatsSystem
             if (_currentSanity < 0f)
             {
                 OnZeroSanity?.Invoke(this, EventArgs.Empty);
+                OnSanityStageChanged?.Invoke(this, EventArgs.Empty);
             }
 
             int updatedSanityStage = (int)(_currentSanity / _sanityPerStage);
