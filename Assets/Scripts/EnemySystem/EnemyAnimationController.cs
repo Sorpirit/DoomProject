@@ -1,7 +1,9 @@
 #region
 
+using System;
 using Core;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 #endregion
 
@@ -26,12 +28,15 @@ namespace EnemySystem
         private float _lockedTill;
 
         private float _reactionAnimationDuration;
+        private float _attackAnimationDuration;
 
         private void Awake()
         {
             _enemyController = enemy.GetComponent<IEnemyController>();
             _animator = GetComponent<Animator>();
         }
+
+        public event EventHandler OnAttackAnimationFinished; 
 
         private void Start()
         {
@@ -66,6 +71,9 @@ namespace EnemySystem
                     case "Zombie Reaction Hit":
                         _reactionAnimationDuration = clip.length;
                         break;
+                    case "zombieAttack":
+                        _attackAnimationDuration = clip.length;
+                        break;
                 }
             }
         }
@@ -87,9 +95,21 @@ namespace EnemySystem
                 return LockState(ReactionHit, _reactionAnimationDuration);
             }
 
-            if (Time.time < _lockedTill) return _currentState;
+            if (Time.time < _lockedTill)
+            {
+                return _currentState;
+            }
+
+            if (_currentState == Attack)
+            {
+                OnAttackAnimationFinished?.Invoke(this, EventArgs.Empty);
+            }
 
 
+            if (_enemyController.IsAttacking)
+            {
+                return LockState(Attack, _attackAnimationDuration);
+            }
             if (_enemyController.IsChasing)
             {
                 return Run;

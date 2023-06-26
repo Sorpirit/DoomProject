@@ -24,7 +24,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4259521208988689615}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: -1.018, z: -0.251}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -48,10 +48,10 @@ MonoBehaviour:
   - enemyPrefab: {fileID: 7856902612889048384, guid: b72ccd1456eb55445ac905767c5ce335,
       type: 3}
     collider: {fileID: 0}
-    value: 4
+    value: 0
   - enemyPrefab: {fileID: 7856902612889048384, guid: 15c6726627c396f4da5a82ae18da6bcb,
       type: 3}
     collider: {fileID: 0}
-    value: 6
-  minSpawnRadius: 3
-  maxSpawnRadius: 10
+    value: 10
+  minSpawnRadius: 10
+  maxSpawnRadius: 20

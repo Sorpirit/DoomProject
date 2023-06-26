@@ -44,5 +44,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1b552068064458cb1cf0409bca493d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnDelay: 0.1
-  spawnRate: 2
+  enemySpawnerDataSO: {fileID: 11400000, guid: 4ff4e64f9d9bb8e4d9a6167e4ba5236f, type: 2}
+  spawner: {fileID: 0}
