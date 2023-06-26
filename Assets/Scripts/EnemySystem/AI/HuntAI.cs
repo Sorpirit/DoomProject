@@ -18,7 +18,10 @@ namespace EnemySystem.AI
         
         private void Start()
         {
-            followTransform ??= Player.Instance.transform;
+            if (followTransform == null) 
+            {
+                followTransform = Player.Instance.transform;
+            }
 
             agent.speed = speed;
         }
