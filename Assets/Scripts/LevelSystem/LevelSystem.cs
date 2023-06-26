@@ -54,6 +54,7 @@ namespace LevelSystems
             if (_currentLevelIndex >= MaxLevel - 1)
             {
                 OnGameEnd?.Invoke();
+                GameManager.Instance.AllEnemiesFinished();
                 return false;
             }
             
