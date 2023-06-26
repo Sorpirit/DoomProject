@@ -1,8 +1,6 @@
 ﻿using System;
-using Core;
 using StatsSystem;
 using UnityEngine;
-using Random = System.Random;
 
 namespace ObjectSystem
 {
@@ -10,10 +8,12 @@ namespace ObjectSystem
     {
         [SerializeField] private float healAmount;
         private SanityController _playerSanityController;
+        public static event Action OnPillPicked; 
 
         public void OnPicked()
         {
             SanityController.Instance.IncreaseSanity(healAmount);
+            OnPillPicked?.Invoke();
             Destroy(gameObject);
         }
 
@@ -27,14 +27,15 @@ namespace ObjectSystem
 
         private bool RandomSpawn()
         {
-            var randomValue = new Random();
-            double probs = randomValue.NextDouble();
-            if (probs*100>=50)
-            {
-                return true;
-            }
+            // var randomValue = new Random();
+            // double probs = randomValue.NextDouble();
+            // if (probs*100>=50)
+            // {
+                // return true;
+            // }
 
-            return false;
+            // return false;
+            return true;
         }
         
         private void OnTriggerEnter(Collider other)

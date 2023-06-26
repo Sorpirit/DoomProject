@@ -10,7 +10,8 @@ namespace EnemySystem.AI
             MenuScene,
             IntroScene,
             SampleScene,
-            LoadingScene
+            LoadingScene,
+            Level0
         }
 
         private static Scene _currentScene = Scene.MenuScene;
