@@ -39,7 +39,6 @@ namespace EnemySystem
             var nextEnemy = GetNextEnemy();
             while (!spawned)
             {
-                Debug.Log("Try spawn");
                 Vector3 point = GenerateRandomPointInCircle(Player.Instance.transform.position, minSpawnRadius,
                     maxSpawnRadius);
                 
