@@ -88,7 +88,6 @@ namespace EnemySystem
             if (_killedEnemies == _spawnTarget)
             {
                 // GameManager.Instance.AllEnemiesFinished();
-
                 OnAllEnemiesKilled?.Invoke();
             }
         }
