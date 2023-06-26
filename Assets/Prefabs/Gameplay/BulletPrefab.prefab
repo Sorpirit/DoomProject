@@ -121,6 +121,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 0}
+  bulletPrefab: {fileID: 1750201243477428575, guid: c060807f6c805ea45ba2a626391dcaf7,
+    type: 3}
 --- !u!54 &-1749001554450250654
 Rigidbody:
   m_ObjectHideFlags: 0

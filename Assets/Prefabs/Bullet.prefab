@@ -30,8 +30,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2092476638545111927}
   - {fileID: 3069216679971724194}
+  - {fileID: 1815961572513985549}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -48,7 +48,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 8310455301949154229}
-  bulletPrefab: {fileID: 5036502918916099173}
+  bulletPrefab: {fileID: 4746565030496572191}
 --- !u!54 &4818448508914259352
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -299,7 +299,7 @@ ParticleSystem:
       serializedVersion: 2
       minMaxState: 0
       minColor: {r: 1, g: 1, b: 1, a: 1}
-      maxColor: {r: 1, g: 0.77250254, b: 0, a: 1}
+      maxColor: {r: 1, g: 0.37788248, b: 0, a: 1}
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
@@ -363,7 +363,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1.54
+      scalar: 1.5
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -680,7 +680,7 @@ ParticleSystem:
         m_RotationOrder: 4
     randomizeRotationDirection: 0
     gravitySource: 0
-    maxNumParticles: 1000
+    maxNumParticles: 1
     customEmitterVelocity: {x: 0, y: 0, z: 0}
     size3D: 0
     rotation3D: 0
@@ -4962,7 +4962,7 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!1001 &5800391194246878702
+--- !u!1001 &6072345470479354516
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -5037,15 +5037,15 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 944da66bbb1476d4582a3b2d84ede53f, type: 3}
---- !u!4 &2092476638545111927 stripped
+--- !u!4 &1815961572513985549 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5581887818775101081, guid: 944da66bbb1476d4582a3b2d84ede53f,
     type: 3}
-  m_PrefabInstance: {fileID: 5800391194246878702}
+  m_PrefabInstance: {fileID: 6072345470479354516}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &5036502918916099173 stripped
+--- !u!1 &4746565030496572191 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1556664061214972299, guid: 944da66bbb1476d4582a3b2d84ede53f,
     type: 3}
-  m_PrefabInstance: {fileID: 5800391194246878702}
+  m_PrefabInstance: {fileID: 6072345470479354516}
   m_PrefabAsset: {fileID: 0}
