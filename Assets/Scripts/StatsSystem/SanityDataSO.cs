@@ -14,6 +14,7 @@ namespace StatsSystem
     {
         public float startingDegradationRate;
         public float maxSanity;
+        public float startSanity;
         public int stagesCount;
     }
 

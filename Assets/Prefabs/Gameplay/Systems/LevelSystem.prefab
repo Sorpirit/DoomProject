@@ -45,6 +45,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levelInfos:
-  - enemyCount: 5
-  - enemyCount: 10
-  - enemyCount: 15
+  - levelGameObject: {fileID: 0}
+    enemySpawnerDataSO: {fileID: 11400000, guid: 4ff4e64f9d9bb8e4d9a6167e4ba5236f,
+      type: 2}
+  - levelGameObject: {fileID: 0}
+    enemySpawnerDataSO: {fileID: 11400000, guid: 4ff4e64f9d9bb8e4d9a6167e4ba5236f,
+      type: 2}
+  - levelGameObject: {fileID: 0}
+    enemySpawnerDataSO: {fileID: 11400000, guid: 4ff4e64f9d9bb8e4d9a6167e4ba5236f,
+      type: 2}

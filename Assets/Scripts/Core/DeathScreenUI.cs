@@ -15,7 +15,10 @@ namespace Core
                 Debug.LogError("GameManager should be on the scene");
             }
             GameManager.Instance!.OnLevelLoose += GameManagerOnLevelFinished;
-            restartButton.onClick.AddListener(SceneLoader.ReloadCurrentScene);
+            restartButton.onClick.AddListener(()=>
+            {
+                SceneLoader.ReloadCurrentScene();
+            });
             Hide();
         }
 

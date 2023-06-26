@@ -39,6 +39,7 @@ namespace EnemySystem
             var nextEnemy = GetNextEnemy();
             while (!spawned)
             {
+                Debug.Log("Try spawn");
                 Vector3 point = GenerateRandomPointInCircle(Player.Instance.transform.position, minSpawnRadius,
                     maxSpawnRadius);
                 
@@ -71,7 +72,7 @@ namespace EnemySystem
             float x = position.x + distance * Mathf.Cos(angle);
             float z = position.z + distance * Mathf.Sin(angle);
 
-            return new Vector3(x, 0f, z);
+            return new Vector3(x, position.y, z);
         }
 
         private bool TrySpawnInPoint(Vector3 point, CapsuleCollider capsuleCollider, Enemy enemyPrefab, out Enemy enemy)
