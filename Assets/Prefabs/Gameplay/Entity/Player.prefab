@@ -127,7 +127,7 @@ MonoBehaviour:
   shootingMask:
     serializedVersion: 2
     m_Bits: 145
-  bullet: {fileID: 1556664061214972299, guid: 944da66bbb1476d4582a3b2d84ede53f, type: 3}
+  bullet: {fileID: 1750201243477428575, guid: c060807f6c805ea45ba2a626391dcaf7, type: 3}
   muzzleFlash: {fileID: 6030891661400054071}
   rayVisualizer: {fileID: 6675219714199123667}
   weapon: {fileID: 7619867903381881690}
@@ -407,16 +407,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebf155ff679649a5ab02796fb483c64d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  <FireRate>k__BackingField: 0.1
+  <FireRate>k__BackingField: 0.05
   <ReloadTime>k__BackingField: 3
   <MaxAmountOfBullets>k__BackingField: 500
   <PushBackForce>k__BackingField: 2
   <CurrentAmountOfBullets>k__BackingField: 5
   <Spread>k__BackingField: 0.05
   <MaxDistance>k__BackingField: 90
-  <ShootForce>k__BackingField: 300
-  <BulletLifeTime>k__BackingField: 2
-  <Damage>k__BackingField: 1
+  <ShootForce>k__BackingField: 250
+  <BulletLifeTime>k__BackingField: 1
+  <Damage>k__BackingField: 3
 --- !u!1 &3963377686732815099
 GameObject:
   m_ObjectHideFlags: 0
@@ -476,7 +476,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4393608977182829409}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.014, y: -0.015, z: 0.032}
+  m_LocalPosition: {x: -0.014, y: -0.015, z: 0.31}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -498,9 +498,9 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   emitterVelocityMode: 1
-  looping: 1
+  looping: 0
   prewarm: 0
-  playOnAwake: 1
+  playOnAwake: 0
   useUnscaledTime: 0
   autoRandomSeed: 1
   startDelay:
@@ -737,7 +737,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.5
+      scalar: 0.4
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -5360,7 +5360,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5869517311308362903}
   m_LocalRotation: {x: 0.058498718, y: -0.6980073, z: 0.019306118, w: 0.71343607}
-  m_LocalPosition: {x: -0.471, y: 0.324, z: 0.018}
+  m_LocalPosition: {x: -0.02, y: 0.374, z: 0.01}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5539,7 +5539,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8659238584114366450}
   m_LocalRotation: {x: -0.058498718, y: 0.6980073, z: -0.019306118, w: 0.71343607}
-  m_LocalPosition: {x: 0.37591502, y: -0.55799997, z: 0.98953}
+  m_LocalPosition: {x: 0.376, y: -0.558, z: 0.989}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -5633,11 +5633,7 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: -5568371526223589888, guid: 9fcb01bde8c02ec439046b31f7611331,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 3570159168281756220}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9fcb01bde8c02ec439046b31f7611331, type: 3}
 --- !u!4 &1151407968224186420 stripped
 Transform:
@@ -5645,26 +5641,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 608027796219099103}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &4235931863844714975 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: -5568371526223589888, guid: 9fcb01bde8c02ec439046b31f7611331,
-    type: 3}
-  m_PrefabInstance: {fileID: 608027796219099103}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &3570159168281756220
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4235931863844714975}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05a61029229a4efd8da321ad9535616c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rotationSpeed: 1000
-  rotatingPart: {fileID: 6073829247644134894}
 --- !u!4 &6073829247644134894 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -2577548232221058511, guid: 9fcb01bde8c02ec439046b31f7611331,
